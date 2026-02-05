@@ -1,0 +1,256 @@
+# Requires Gradle Profiler v0.23.0-alpha-2 or later
+
+default-scenarios = []
+
+scenario-groups {
+  fsync_all = [fsync_vt, fsync_cc, fsync_pcc, fsync_pcc_par, fsync_pcc_par_cod, fsync_pip, fsync_pip_iip]
+  fsync = [fsync_pcc, fsync_pcc_par, fsync_pip, fsync_pip_iip]
+
+  resync_bl_abi_change_cold_all = [resync_bl_abi_change_vt_cold, resync_bl_abi_change_cc_cold, resync_bl_abi_change_pcc_cold, resync_bl_abi_change_pcc_par_cold, resync_bl_abi_change_pcc_par_cod_cold, resync_bl_abi_change_pip_cold, resync_bl_abi_change_pip_iip_cold]
+  resync_bl_abi_change_cold = [resync_bl_abi_change_cc_cold, resync_bl_abi_change_pcc_par_cold, resync_bl_abi_change_pip_cold]
+
+  resync_bl_abi_change_warm_all = [resync_bl_abi_change_vt_warm, resync_bl_abi_change_cc_warm, resync_bl_abi_change_pcc_warm, resync_bl_abi_change_pcc_par_warm, resync_bl_abi_change_pcc_par_cod_warm, resync_bl_abi_change_pip_warm, resync_bl_abi_change_pip_iip_warm]
+  resync_bl_abi_change_warm = [resync_bl_abi_change_cc_warm, resync_bl_abi_change_pcc_par_warm, resync_bl_abi_change_pip_warm]
+
+  resync_st_scr_change_cold_all = [resync_st_scr_change_vt_cold, resync_st_scr_change_cc_cold, resync_st_scr_change_pcc_cold, resync_st_scr_change_pcc_par_cold, resync_st_scr_change_pcc_par_cod_cold, resync_st_scr_change_pip_cold, resync_st_scr_change_pip_iip_cold]
+  resync_st_scr_change_cold = [resync_st_scr_change_cc_cold, resync_st_scr_change_pcc_par_cold, resync_st_scr_change_pip_cold]
+
+  resync_st_scr_change_warm_all = [resync_st_scr_change_vt_warm, resync_st_scr_change_cc_warm, resync_st_scr_change_pcc_warm, resync_st_scr_change_pcc_par_warm, resync_st_scr_change_pcc_par_cod_warm, resync_st_scr_change_pip_warm, resync_st_scr_change_pip_iip_warm]
+  resync_st_scr_change_warm = [resync_st_scr_change_cc_warm, resync_st_scr_change_pcc_par_warm, resync_st_scr_change_pip_warm]
+
+  resync_pr_scr_change_cold_all = [resync_pr_scr_change_vt_cold, resync_pr_scr_change_cc_cold, resync_pr_scr_change_pcc_cold, resync_pr_scr_change_pcc_par_cold, resync_pr_scr_change_pcc_par_cod_cold, resync_pr_scr_change_pip_cold, resync_pr_scr_change_pip_iip_cold]
+  resync_pr_scr_change_cold = [resync_pr_scr_change_cc_cold, resync_pr_scr_change_pcc_par_cold, resync_pr_scr_change_pip_cold]
+
+  resync_pr_scr_change_warm_all = [resync_pr_scr_change_vt_warm, resync_pr_scr_change_cc_warm, resync_pr_scr_change_pcc_warm, resync_pr_scr_change_pcc_par_warm, resync_pr_scr_change_pcc_par_cod_warm, resync_pr_scr_change_pip_warm, resync_pr_scr_change_pip_iip_warm]
+  resync_pr_scr_change_warm = [resync_pr_scr_change_cc_warm, resync_pr_scr_change_pcc_par_warm, resync_pr_scr_change_pip_warm]
+
+  resync_no_change_cold_all = [resync_no_change_vt_cold, resync_no_change_cc_cold, resync_no_change_pcc_cold, resync_no_change_pcc_par_cold, resync_no_change_pcc_par_cod_cold, resync_no_change_pip_cold, resync_no_change_pip_iip_cold]
+  resync_no_change_cold = [resync_no_change_cc_cold, resync_no_change_pcc_par_cold, resync_no_change_pip_cold]
+
+  resync_no_change_warm_all = [resync_no_change_vt_warm, resync_no_change_cc_warm, resync_no_change_pcc_warm, resync_no_change_pcc_par_warm, resync_no_change_pcc_par_cod_warm, resync_no_change_pip_warm, resync_no_change_pip_iip_warm]
+  resync_no_change_warm = [resync_no_change_cc_warm, resync_no_change_pcc_par_warm, resync_no_change_pip_warm]
+  
+  all = ${scenario-groups.fsync_all} ${scenario-groups.resync_bl_abi_change_cold_all} ${scenario-groups.resync_bl_abi_change_warm_all} ${scenario-groups.resync_st_scr_change_cold_all} ${scenario-groups.resync_st_scr_change_warm_all} ${scenario-groups.resync_pr_scr_change_cold_all} ${scenario-groups.resync_pr_scr_change_warm_all} ${scenario-groups.resync_no_change_cold_all} ${scenario-groups.resync_no_change_warm_all}
+}
+
+base_jvm_args = [
+  "-Dorg.gradle.internal.operations.verbose.locking=true"
+]
+
+base_scenario {
+  warm-ups = 2
+  iterations = 5
+
+  system-properties {
+    "org.gradle.workers.max" = "8"
+    "org.gradle.caching" = "true"
+  }
+
+  jvm-args = ${base_jvm_args}
+
+  measured-build-ops = [
+    "org.gradle.initialization.ConfigureBuildBuildOperationType"
+  ]
+
+  android-studio-sync {
+    studio-jvm-args = ["-Xms8g", "-Xmx8g"]
+    idea-properties = [
+      "gradle.tooling.models.parallel.fetch=true" // This does not enable parallel fetch, only allows it
+    ]
+  }
+}
+
+base_pre_build_cleaning = ${base_scenario} {
+  // In-between builds, clear the Gradle User Home in a special way.
+  // Remove everything except external dependencies to avoid downloading them again.
+  // The external dependencies are populated by the initial warm-up builds.
+  clear-dir = [{
+    schedule = BUILD
+    root = GRADLE_USER_HOME
+    target = "."
+    keep = [
+      "caches"
+      "wrapper" // keep the wrapper to avoid re-downloading Gradle, mimics `clear-gradle-user-home-before` option
+      "kotlin-profile" // this directory contains only lightweight Kotlin stats, and Android Studio throws logs many exceptions, if it gets deleted while AS is running
+    ]
+  }, {
+    schedule = BUILD
+    root = GRADLE_USER_HOME
+    target = "caches"
+    keep = ["modules-2"]
+  }, {
+    schedule = BUILD
+    target = ".gradle"
+    keep = ["config.properties"]
+  }]
+
+  delete-file = [{
+    schedule = BUILD
+    target = "build-logic/.gradle"
+  }, {
+    schedule = BUILD
+    target = "build"
+  }]
+}
+
+# Gradle modes
+# Note: careful with array values, since they are not merged/concactenated, but replaced!
+# That's why we use base_jvm_args variable to keep common args.
+mode_cc {
+  system-properties {
+    "org.gradle.configuration-cache" = "true"
+  }
+}
+mode_pcc {
+  system-properties {
+    "org.gradle.configuration-cache" = "true"
+    "org.gradle.configuration-cache.parallel" = "true"
+  }
+}
+mode_pcc_par {
+  system-properties {
+    "org.gradle.configuration-cache" = "true"
+    "org.gradle.configuration-cache.parallel" = "true"
+    "org.gradle.parallel" = "true"
+  }
+}
+mode_pcc_par_cod {
+  system-properties {
+    "org.gradle.configuration-cache" = "true"
+    "org.gradle.configuration-cache.parallel" = "true"
+    "org.gradle.parallel" = "true"
+    "org.gradle.configureondemand" = "true"
+  }
+}
+mode_ip {
+  system-properties {
+    "org.gradle.unsafe.isolated-projects" = "true"
+  }
+  jvm-args = ${base_jvm_args} [
+    "-Dorg.gradle.internal.isolated-projects.parallel=true"
+    "-Dorg.gradle.internal.isolated-projects.caching=false"
+  ]
+}
+mode_iip {
+  system-properties {
+    "org.gradle.unsafe.isolated-projects" = "true"
+  }
+  jvm-args = ${base_jvm_args} [
+    "-Dorg.gradle.internal.isolated-projects.parallel=true"
+    "-Dorg.gradle.internal.isolated-projects.caching=tooling"
+  ]
+}
+
+# First sync (cached external dependencies)
+base_fsync = ${base_pre_build_cleaning} {
+  daemon = cold
+}
+fsync_vt = ${base_fsync} {title = "First sync (cached deps). Vintage"}
+fsync_cc = ${base_fsync} ${mode_cc} {title = "First sync (cached deps). CC"}
+fsync_pcc = ${base_fsync} ${mode_pcc} {title = "First sync (cached deps). ParCC"}
+fsync_pcc_par = ${base_fsync} ${mode_pcc_par} {title = "First sync (cached deps). ParCC and ParExecution"}
+fsync_pcc_par_cod = ${base_fsync} ${mode_pcc_par_cod} {title = "First sync (cached deps). ParCC and ParExecution and CoD"}
+fsync_pip = ${base_fsync} ${mode_ip} {title = "First sync (cached deps). ParIP"}
+fsync_pip_iip = ${base_fsync} ${mode_iip} {title = "First sync (cached deps). ParIP and IncIP"}
+
+# Resync. Build-logic classpath ABI change. Cold daemon
+base_bl_abi_change_cold = ${base_scenario} {
+  daemon = cold
+  apply-abi-change-to = "build-logic/convention/src/main/kotlin/com/logic/utils.kt"
+}
+resync_bl_abi_change_vt_cold = ${base_bl_abi_change_cold} {title = "Resync. Build-logic ABI change. Vintage. Cold"}
+resync_bl_abi_change_cc_cold = ${base_bl_abi_change_cold} ${mode_cc} {title = "Resync. Build-logic ABI change. CC. Cold"}
+resync_bl_abi_change_pcc_cold = ${base_bl_abi_change_cold} ${mode_pcc} {title = "Resync. Build-logic ABI change. ParCC. Cold"}
+resync_bl_abi_change_pcc_par_cold = ${base_bl_abi_change_cold} ${mode_pcc_par} {title = "Resync. Build-logic ABI change. ParCC and ParExec. Cold"}
+resync_bl_abi_change_pcc_par_cod_cold = ${base_bl_abi_change_cold} ${mode_pcc_par_cod} {title = "Resync. Build-logic ABI change. ParCC and ParExec and CoD. Cold"}
+resync_bl_abi_change_pip_cold = ${base_bl_abi_change_cold} ${mode_ip} {title = "Resync. Build-logic ABI change. ParIP. Cold"}
+resync_bl_abi_change_pip_iip_cold = ${base_bl_abi_change_cold} ${mode_iip} {title = "Resync. Build-logic ABI change. ParIP and IncIP. Cold"}
+
+# Resync. Build-logic classpath ABI change. Warm daemon
+base_bl_abi_change_warm = ${base_scenario} {
+  daemon = warm
+  apply-abi-change-to = "build-logic/convention/src/main/kotlin/com/logic/utils.kt"
+}
+resync_bl_abi_change_vt_warm = ${base_bl_abi_change_warm} {title = "Resync. Build-logic ABI change. Vintage. Warm"}
+resync_bl_abi_change_cc_warm = ${base_bl_abi_change_warm} ${mode_cc} {title = "Resync. Build-logic ABI change. CC. Warm"}
+resync_bl_abi_change_pcc_warm = ${base_bl_abi_change_warm} ${mode_pcc} {title = "Resync. Build-logic ABI change. ParCC. Warm"}
+resync_bl_abi_change_pcc_par_warm = ${base_bl_abi_change_warm} ${mode_pcc_par} {title = "Resync. Build-logic ABI change. ParCC and ParExec. Warm"}
+resync_bl_abi_change_pcc_par_cod_warm = ${base_bl_abi_change_warm} ${mode_pcc_par_cod} {title = "Resync. Build-logic ABI change. ParCC and ParExec and CoD. Warm"}
+resync_bl_abi_change_pip_warm = ${base_bl_abi_change_warm} ${mode_ip} {title = "Resync. Build-logic ABI change. ParIP. Warm"}
+resync_bl_abi_change_pip_iip_warm = ${base_bl_abi_change_warm} ${mode_iip} {title = "Resync. Build-logic ABI change. ParIP and IncIP. Warm"}
+
+# Resync. Settings script change. Cold daemon
+base_st_scr_change_cold = ${base_scenario} {
+  daemon = cold
+  apply-build-script-change-to = "settings.gradle.kts"
+}
+resync_st_scr_change_vt_cold = ${base_st_scr_change_cold} {title = "Resync. Settings change. Vintage. Cold"}
+resync_st_scr_change_cc_cold = ${base_st_scr_change_cold} ${mode_cc} {title = "Resync. Settings change. CC. Cold"}
+resync_st_scr_change_pcc_cold = ${base_st_scr_change_cold} ${mode_pcc} {title = "Resync. Settings change. ParCC. Cold"}
+resync_st_scr_change_pcc_par_cold = ${base_st_scr_change_cold} ${mode_pcc_par} {title = "Resync. Settings change. ParCC and ParExec. Cold"}
+resync_st_scr_change_pcc_par_cod_cold = ${base_st_scr_change_cold} ${mode_pcc_par_cod} {title = "Resync. Settings change. ParCC and ParExec and CoD. Cold"}
+resync_st_scr_change_pip_cold = ${base_st_scr_change_cold} ${mode_ip} {title = "Resync. Settings change. ParIP. Cold"}
+resync_st_scr_change_pip_iip_cold = ${base_st_scr_change_cold} ${mode_iip} {title = "Resync. Settings change. ParIP and IncIP. Cold"}
+
+# Resync. Settings script change. Warm daemon
+base_st_scr_change_warm = ${base_scenario} {
+  daemon = warm
+  apply-build-script-change-to = "settings.gradle.kts"
+}
+resync_st_scr_change_vt_warm = ${base_st_scr_change_warm} {title = "Resync. Settings change. Vintage. Warm"}
+resync_st_scr_change_cc_warm = ${base_st_scr_change_warm} ${mode_cc} {title = "Resync. Settings change. CC. Warm"}
+resync_st_scr_change_pcc_warm = ${base_st_scr_change_warm} ${mode_pcc} {title = "Resync. Settings change. ParCC. Warm"}
+resync_st_scr_change_pcc_par_warm = ${base_st_scr_change_warm} ${mode_pcc_par} {title = "Resync. Settings change. ParCC and ParExec. Warm"}
+resync_st_scr_change_pcc_par_cod_warm = ${base_st_scr_change_warm} ${mode_pcc_par_cod} {title = "Resync. Settings change. ParCC and ParExec and CoD. Warm"}
+resync_st_scr_change_pip_warm = ${base_st_scr_change_warm} ${mode_ip} {title = "Resync. Settings change. ParIP. Warm"}
+resync_st_scr_change_pip_iip_warm = ${base_st_scr_change_warm} ${mode_iip} {title = "Resync. Settings change. ParIP and IncIP. Warm"}
+
+# Resync. Project build script change. Cold daemon
+base_pr_scr_change_cold = ${base_scenario} {
+  daemon = cold
+  apply-build-script-change-to = "core/push/build.gradle.kts"
+}
+resync_pr_scr_change_vt_cold = ${base_pr_scr_change_cold} {title = "Resync. Project change. Vintage. Cold"}
+resync_pr_scr_change_cc_cold = ${base_pr_scr_change_cold} ${mode_cc} {title = "Resync. Project change. CC. Cold"}
+resync_pr_scr_change_pcc_cold = ${base_pr_scr_change_cold} ${mode_pcc} {title = "Resync. Project change. ParCC. Cold"}
+resync_pr_scr_change_pcc_par_cold = ${base_pr_scr_change_cold} ${mode_pcc_par} {title = "Resync. Project change. ParCC and ParExec. Cold"}
+resync_pr_scr_change_pcc_par_cod_cold = ${base_pr_scr_change_cold} ${mode_pcc_par_cod} {title = "Resync. Project change. ParCC and ParExec and CoD. Cold"}
+resync_pr_scr_change_pip_cold = ${base_pr_scr_change_cold} ${mode_ip} {title = "Resync. Project change. ParIP. Cold"}
+resync_pr_scr_change_pip_iip_cold = ${base_pr_scr_change_cold} ${mode_iip} {title = "Resync. Project change. ParIP and IncIp. Cold"}
+
+# Resync. Project build script change. Warm daemon
+base_pr_scr_change_warm = ${base_scenario} {
+  daemon = warm
+  apply-build-script-change-to = "core/push/build.gradle.kts"
+}
+resync_pr_scr_change_vt_warm = ${base_pr_scr_change_warm} {title = "Resync. Project change. Vintage. Warm"}
+resync_pr_scr_change_cc_warm = ${base_pr_scr_change_warm} ${mode_cc} {title = "Resync. Project change. CC. Warm"}
+resync_pr_scr_change_pcc_warm = ${base_pr_scr_change_warm} ${mode_pcc} {title = "Resync. Project change. ParCC. Warm"}
+resync_pr_scr_change_pcc_par_warm = ${base_pr_scr_change_warm} ${mode_pcc_par} {title = "Resync. Project change. ParCC and ParExec. Warm"}
+resync_pr_scr_change_pcc_par_cod_warm = ${base_pr_scr_change_warm} ${mode_pcc_par_cod} {title = "Resync. Project change. ParCC and ParExec and CoD. Warm"}
+resync_pr_scr_change_pip_warm = ${base_pr_scr_change_warm} ${mode_ip} {title = "Resync. Project change. ParIP. Warm"}
+resync_pr_scr_change_pip_iip_warm = ${base_pr_scr_change_warm} ${mode_iip} {title = "Resync. Project change. ParIP and IncIp. Warm"}
+
+# Resync. No change. Cold daemon
+base_no_change_cold = ${base_scenario} {
+  daemon = cold
+}
+resync_no_change_vt_cold = ${base_no_change_cold} {title = "Resync. No change. Vintage. Cold"}
+resync_no_change_cc_cold = ${base_no_change_cold} ${mode_cc} {title = "Resync. No change. CC. Cold"}
+resync_no_change_pcc_cold = ${base_no_change_cold} ${mode_pcc} {title = "Resync. No change. ParCC. Cold"}
+resync_no_change_pcc_par_cold = ${base_no_change_cold} ${mode_pcc_par} {title = "Resync. No change. ParCC and ParExec. Cold"}
+resync_no_change_pcc_par_cod_cold = ${base_no_change_cold} ${mode_pcc_par_cod} {title = "Resync. No change. ParCC and ParExec and CoD. Cold"}
+resync_no_change_pip_cold = ${base_no_change_cold} ${mode_ip} {title = "Resync. No change. ParIP. Cold"}
+resync_no_change_pip_iip_cold = ${base_no_change_cold} ${mode_iip} {title = "Resync. No change. ParIP and IncIP. Cold"}
+
+# Resync. No change. Warm daemon
+base_no_change_warm = ${base_scenario} {
+  daemon = warm
+}
+resync_no_change_vt_warm = ${base_no_change_warm} {title = "Resync. No change. Vintage. Warm"}
+resync_no_change_cc_warm = ${base_no_change_warm} ${mode_cc} {title = "Resync. No change. CC. Warm"}
+resync_no_change_pcc_warm = ${base_no_change_warm} ${mode_pcc} {title = "Resync. No change. ParCC. Warm"}
+resync_no_change_pcc_par_warm = ${base_no_change_warm} ${mode_pcc_par} {title = "Resync. No change. ParCC and ParExec. Warm"}
+resync_no_change_pcc_par_cod_warm = ${base_no_change_warm} ${mode_pcc_par_cod} {title = "Resync. No change. ParCC and ParExec and CoD. Warm"}
+resync_no_change_pip_warm = ${base_no_change_warm} ${mode_ip} {title = "Resync. No change. ParIP. Warm"}
+resync_no_change_pip_iip_warm = ${base_no_change_warm} ${mode_iip} {title = "Resync. No change. ParIP and IncIP. Warm"}

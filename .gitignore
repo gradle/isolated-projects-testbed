@@ -1,0 +1,11 @@
+.DS_Store
+.gradle
+
+# in case of running profiling in the root of the project
+gradle-user-home
+profile-out*
+
+/*/build
+/*/*/build
+.idea
+/*/local.properties
