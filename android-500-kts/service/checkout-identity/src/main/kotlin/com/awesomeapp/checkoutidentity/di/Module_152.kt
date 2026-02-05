@@ -1,0 +1,47 @@
+package com.awesomeapp.checkoutidentity.di
+
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
+import com.awesomeapp.checkoutidentity.Viewmodel152_1
+import com.awesomeapp.checkoutidentity.Activity152_2
+import com.awesomeapp.checkoutidentity.Activity152_3
+import com.awesomeapp.checkoutidentity.Fragment152_4
+import com.awesomeapp.checkoutidentity.Repository152_5
+import com.awesomeapp.cartlogin.Api104_6
+import com.awesomeapp.messagelogin.Api116_6
+import com.awesomeapp.networklogin.Api112_6
+import com.awesomeapp.statuslogin.Api124_6
+import com.awesomeapp.sessionlogin.Api120_6
+import com.awesomeapp.mediacontact.Api96_6
+import com.awesomeapp.checkoutidentity.Api152_6
+
+@Module
+@InstallIn(SingletonComponent::class)
+object Module_152 {
+    @Provides
+    @Singleton
+    fun provideRepository152_5(
+        api0: Api104_6 = Api104_6(),
+        api1: Api116_6 = Api116_6(),
+        api2: Api112_6 = Api112_6(),
+        api3: Api124_6 = Api124_6(),
+        api4: Api120_6 = Api120_6(),
+        api5: Api96_6 = Api96_6()
+    ): Repository152_5 {
+        return Repository152_5(api0, 
+        api1, 
+        api2, 
+        api3, 
+        api4, 
+        api5)
+    }
+
+    @Provides
+    @Singleton
+    fun provideApi152_6(): Api152_6 {
+        return Api152_6()
+    }
+}
