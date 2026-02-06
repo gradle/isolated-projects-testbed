@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":feature:comment"))
-    implementation(project(":feature:feed"))
-    implementation(project(":feature:user"))
-    implementation(project(":feature:cart"))
+    implementation(projects.feature.comment)
+    implementation(projects.feature.feed)
+    implementation(projects.feature.user)
+    implementation(projects.feature.cart)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

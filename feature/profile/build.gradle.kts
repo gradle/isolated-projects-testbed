@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":core:login"))
-    implementation(project(":core:identity"))
+    implementation(projects.core.login)
+    implementation(projects.core.identity)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

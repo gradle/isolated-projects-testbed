@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":local:notification-feed"))
-    implementation(project(":local:location-feed"))
-    implementation(project(":local:log-feed"))
-    implementation(project(":local:timer-feed"))
+    implementation(projects.local.notificationFeed)
+    implementation(projects.local.locationFeed)
+    implementation(projects.local.logFeed)
+    implementation(projects.local.timerFeed)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

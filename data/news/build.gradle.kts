@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":entity:alarm"))
-    implementation(project(":entity:note"))
-    implementation(project(":entity:todo"))
+    implementation(projects.entity.alarm)
+    implementation(projects.entity.note)
+    implementation(projects.entity.todo)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

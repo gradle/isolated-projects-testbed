@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":api:push-contact"))
+    implementation(projects.api.pushContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

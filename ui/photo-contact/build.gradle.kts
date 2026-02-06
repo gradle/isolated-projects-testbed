@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":presentation:sync-contact"))
-    implementation(project(":presentation:network-contact"))
-    implementation(project(":presentation:setting-contact"))
+    implementation(projects.presentation.syncContact)
+    implementation(projects.presentation.networkContact)
+    implementation(projects.presentation.settingContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

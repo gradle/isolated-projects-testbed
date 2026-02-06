@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":model:status"))
+    implementation(projects.model.status)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,14 +3,14 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":plugin:gallery-user"))
-    implementation(project(":plugin:log-user"))
-    implementation(project(":plugin:article-user"))
-    implementation(project(":plugin:share-profile"))
-    implementation(project(":plugin:list-user"))
-    implementation(project(":plugin:status-user"))
-    implementation(project(":plugin:todo-user"))
-    implementation(project(":plugin:file-user"))
+    implementation(projects.plugin.galleryUser)
+    implementation(projects.plugin.logUser)
+    implementation(projects.plugin.articleUser)
+    implementation(projects.plugin.shareProfile)
+    implementation(projects.plugin.listUser)
+    implementation(projects.plugin.statusUser)
+    implementation(projects.plugin.todoUser)
+    implementation(projects.plugin.fileUser)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

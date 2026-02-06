@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":api:comment-contact"))
+    implementation(projects.api.commentContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

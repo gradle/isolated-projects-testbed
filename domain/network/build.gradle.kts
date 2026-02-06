@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":feature:user"))
-    implementation(project(":feature:comment"))
-    implementation(project(":feature:profile"))
+    implementation(projects.feature.user)
+    implementation(projects.feature.comment)
+    implementation(projects.feature.profile)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

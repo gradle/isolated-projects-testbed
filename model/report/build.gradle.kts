@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":repository:message"))
-    implementation(project(":repository:notification"))
-    implementation(project(":repository:session"))
-    implementation(project(":repository:setting"))
+    implementation(projects.repository.message)
+    implementation(projects.repository.notification)
+    implementation(projects.repository.session)
+    implementation(projects.repository.setting)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

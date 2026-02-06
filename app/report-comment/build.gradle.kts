@@ -3,12 +3,12 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":common:group-comment"))
-    implementation(project(":common:network-comment"))
-    implementation(project(":common:account-comment"))
-    implementation(project(":common:share-comment"))
-    implementation(project(":common:message-comment"))
-    implementation(project(":common:location-comment"))
+    implementation(projects.common.groupComment)
+    implementation(projects.common.networkComment)
+    implementation(projects.common.accountComment)
+    implementation(projects.common.shareComment)
+    implementation(projects.common.messageComment)
+    implementation(projects.common.locationComment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

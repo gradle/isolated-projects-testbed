@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":helper:gallery-comment"))
+    implementation(projects.helper.galleryComment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

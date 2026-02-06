@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":local:file-feed"))
+    implementation(projects.local.fileFeed)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

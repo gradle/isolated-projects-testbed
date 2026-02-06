@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":config:list-feed"))
+    implementation(projects.config.listFeed)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

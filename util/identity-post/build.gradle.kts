@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":helper:podcast-comment"))
-    implementation(project(":helper:media-comment"))
-    implementation(project(":helper:gallery-comment"))
-    implementation(project(":helper:audio-comment"))
-    implementation(project(":helper:video-comment"))
+    implementation(projects.helper.podcastComment)
+    implementation(projects.helper.mediaComment)
+    implementation(projects.helper.galleryComment)
+    implementation(projects.helper.audioComment)
+    implementation(projects.helper.videoComment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

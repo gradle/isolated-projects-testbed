@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":common:setting-comment"))
+    implementation(projects.common.settingComment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

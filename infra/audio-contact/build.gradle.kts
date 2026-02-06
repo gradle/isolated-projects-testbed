@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":ui:map-contact"))
-    implementation(project(":ui:metric-contact"))
-    implementation(project(":ui:alarm-contact"))
-    implementation(project(":ui:gallery-contact"))
+    implementation(projects.ui.mapContact)
+    implementation(projects.ui.metricContact)
+    implementation(projects.ui.alarmContact)
+    implementation(projects.ui.galleryContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":app:task-comment"))
-    implementation(project(":app:metric-comment"))
+    implementation(projects.app.taskComment)
+    implementation(projects.app.metricComment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

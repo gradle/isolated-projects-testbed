@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":feature:cart"))
-    implementation(project(":feature:profile"))
-    implementation(project(":feature:comment"))
+    implementation(projects.feature.cart)
+    implementation(projects.feature.profile)
+    implementation(projects.feature.comment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

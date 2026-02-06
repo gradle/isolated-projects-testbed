@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":app:analytics-comment"))
-    implementation(project(":app:log-comment"))
+    implementation(projects.app.analyticsComment)
+    implementation(projects.app.logComment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

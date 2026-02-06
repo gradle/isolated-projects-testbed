@@ -3,12 +3,12 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":entity:document"))
-    implementation(project(":entity:list"))
-    implementation(project(":entity:alarm"))
-    implementation(project(":entity:file"))
-    implementation(project(":entity:event"))
-    implementation(project(":entity:note"))
+    implementation(projects.entity.document)
+    implementation(projects.entity.list)
+    implementation(projects.entity.alarm)
+    implementation(projects.entity.file)
+    implementation(projects.entity.event)
+    implementation(projects.entity.note)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

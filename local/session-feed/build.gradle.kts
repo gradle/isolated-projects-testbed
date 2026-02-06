@@ -3,12 +3,12 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":remote:forecast-profile"))
-    implementation(project(":remote:podcast-profile"))
-    implementation(project(":remote:map-profile"))
-    implementation(project(":remote:photo-profile"))
-    implementation(project(":remote:file-profile"))
-    implementation(project(":remote:todo-profile"))
+    implementation(projects.remote.forecastProfile)
+    implementation(projects.remote.podcastProfile)
+    implementation(projects.remote.mapProfile)
+    implementation(projects.remote.photoProfile)
+    implementation(projects.remote.fileProfile)
+    implementation(projects.remote.todoProfile)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

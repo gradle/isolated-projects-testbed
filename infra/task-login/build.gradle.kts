@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":ui:podcast-contact"))
-    implementation(project(":ui:video-contact"))
-    implementation(project(":ui:forecast-contact"))
+    implementation(projects.ui.podcastContact)
+    implementation(projects.ui.videoContact)
+    implementation(projects.ui.forecastContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

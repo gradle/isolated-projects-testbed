@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":remote:video-profile"))
-    implementation(project(":remote:checkout-feed"))
-    implementation(project(":remote:list-profile"))
-    implementation(project(":remote:weather-profile"))
+    implementation(projects.remote.videoProfile)
+    implementation(projects.remote.checkoutFeed)
+    implementation(projects.remote.listProfile)
+    implementation(projects.remote.weatherProfile)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":network:post-comment"))
-    implementation(project(":network:playlist-feed"))
-    implementation(project(":network:comment-comment"))
+    implementation(projects.network.postComment)
+    implementation(projects.network.playlistFeed)
+    implementation(projects.network.commentComment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

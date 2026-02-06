@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":api:user-contact"))
-    implementation(project(":api:identity-contact"))
+    implementation(projects.api.userContact)
+    implementation(projects.api.identityContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

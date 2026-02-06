@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":infra:session-login"))
-    implementation(project(":infra:audio-contact"))
-    implementation(project(":infra:group-login"))
+    implementation(projects.infra.sessionLogin)
+    implementation(projects.infra.audioContact)
+    implementation(projects.infra.groupLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

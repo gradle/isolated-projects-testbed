@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":util:identity-post"))
+    implementation(projects.util.identityPost)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

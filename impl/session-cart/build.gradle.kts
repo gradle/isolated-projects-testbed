@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:calendar-login"))
+    implementation(projects.service.calendarLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

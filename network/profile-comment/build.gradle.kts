@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":config:document-feed"))
-    implementation(project(":config:map-feed"))
-    implementation(project(":config:list-feed"))
-    implementation(project(":config:weather-feed"))
-    implementation(project(":config:article-feed"))
+    implementation(projects.config.documentFeed)
+    implementation(projects.config.mapFeed)
+    implementation(projects.config.listFeed)
+    implementation(projects.config.weatherFeed)
+    implementation(projects.config.articleFeed)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

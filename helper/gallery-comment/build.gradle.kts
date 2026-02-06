@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":view:list-comment"))
+    implementation(projects.view.listComment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

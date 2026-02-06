@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":repository:message"))
+    implementation(projects.repository.message)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":infra:comment-login"))
-    implementation(project(":infra:cart-login"))
-    implementation(project(":infra:push-login"))
-    implementation(project(":infra:report-login"))
-    implementation(project(":infra:identity-login"))
+    implementation(projects.infra.commentLogin)
+    implementation(projects.infra.cartLogin)
+    implementation(projects.infra.pushLogin)
+    implementation(projects.infra.reportLogin)
+    implementation(projects.infra.identityLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

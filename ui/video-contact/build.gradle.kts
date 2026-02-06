@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":presentation:report-contact"))
-    implementation(project(":presentation:sync-contact"))
-    implementation(project(":presentation:account-contact"))
+    implementation(projects.presentation.reportContact)
+    implementation(projects.presentation.syncContact)
+    implementation(projects.presentation.accountContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

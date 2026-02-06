@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":infra:network-login"))
-    implementation(project(":infra:comment-login"))
-    implementation(project(":infra:metric-login"))
-    implementation(project(":infra:user-login"))
-    implementation(project(":infra:share-login"))
+    implementation(projects.infra.networkLogin)
+    implementation(projects.infra.commentLogin)
+    implementation(projects.infra.metricLogin)
+    implementation(projects.infra.userLogin)
+    implementation(projects.infra.shareLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

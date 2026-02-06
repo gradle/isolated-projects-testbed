@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":api:audio"))
-    implementation(project(":api:user-contact"))
+    implementation(projects.api.audio)
+    implementation(projects.api.userContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

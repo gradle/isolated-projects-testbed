@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:login-identity"))
-    implementation(project(":service:session-identity"))
-    implementation(project(":service:network-identity"))
-    implementation(project(":service:search-identity"))
-    implementation(project(":service:timer-identity"))
+    implementation(projects.service.loginIdentity)
+    implementation(projects.service.sessionIdentity)
+    implementation(projects.service.networkIdentity)
+    implementation(projects.service.searchIdentity)
+    implementation(projects.service.timerIdentity)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

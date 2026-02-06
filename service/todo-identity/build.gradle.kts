@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":infra:location-login"))
+    implementation(projects.infra.locationLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

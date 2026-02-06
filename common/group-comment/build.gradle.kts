@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":network:profile-comment"))
-    implementation(project(":network:feed-comment"))
+    implementation(projects.network.profileComment)
+    implementation(projects.network.feedComment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

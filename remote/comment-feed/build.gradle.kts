@@ -3,14 +3,14 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":plugin:todo-user"))
-    implementation(project(":plugin:forecast-user"))
-    implementation(project(":plugin:video-user"))
-    implementation(project(":plugin:setting-profile"))
-    implementation(project(":plugin:comment-profile"))
-    implementation(project(":plugin:search-profile"))
-    implementation(project(":plugin:contact-profile"))
-    implementation(project(":plugin:notification-profile"))
+    implementation(projects.plugin.todoUser)
+    implementation(projects.plugin.forecastUser)
+    implementation(projects.plugin.videoUser)
+    implementation(projects.plugin.settingProfile)
+    implementation(projects.plugin.commentProfile)
+    implementation(projects.plugin.searchProfile)
+    implementation(projects.plugin.contactProfile)
+    implementation(projects.plugin.notificationProfile)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

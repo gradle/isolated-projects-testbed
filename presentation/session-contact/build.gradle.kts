@@ -3,14 +3,14 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":api:cart-contact"))
-    implementation(project(":api:push-contact"))
-    implementation(project(":api:user-contact"))
-    implementation(project(":api:contact-contact"))
-    implementation(project(":api:feed-contact"))
-    implementation(project(":api:checkout-contact"))
-    implementation(project(":api:audio"))
-    implementation(project(":api:profile-contact"))
+    implementation(projects.api.cartContact)
+    implementation(projects.api.pushContact)
+    implementation(projects.api.userContact)
+    implementation(projects.api.contactContact)
+    implementation(projects.api.feedContact)
+    implementation(projects.api.checkoutContact)
+    implementation(projects.api.audio)
+    implementation(projects.api.profileContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

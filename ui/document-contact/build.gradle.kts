@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":presentation:log-contact"))
-    implementation(project(":presentation:analytics-contact"))
+    implementation(projects.presentation.logContact)
+    implementation(projects.presentation.analyticsContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:report-identity"))
-    implementation(project(":service:audio-login"))
-    implementation(project(":service:forecast-identity"))
+    implementation(projects.service.reportIdentity)
+    implementation(projects.service.audioLogin)
+    implementation(projects.service.forecastIdentity)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":presentation:share-contact"))
+    implementation(projects.presentation.shareContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

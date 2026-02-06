@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":local:event-feed"))
-    implementation(project(":local:message-feed"))
-    implementation(project(":local:account-feed"))
-    implementation(project(":local:setting-feed"))
+    implementation(projects.local.eventFeed)
+    implementation(projects.local.messageFeed)
+    implementation(projects.local.accountFeed)
+    implementation(projects.local.settingFeed)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":data:video"))
-    implementation(project(":data:article"))
-    implementation(project(":data:media"))
+    implementation(projects.data.video)
+    implementation(projects.data.article)
+    implementation(projects.data.media)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

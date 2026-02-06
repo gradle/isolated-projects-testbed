@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":local:share-feed"))
+    implementation(projects.local.shareFeed)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

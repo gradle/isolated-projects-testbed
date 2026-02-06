@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":config:list-feed"))
-    implementation(project(":config:weather-feed"))
-    implementation(project(":config:media-feed"))
-    implementation(project(":config:audio-feed"))
+    implementation(projects.config.listFeed)
+    implementation(projects.config.weatherFeed)
+    implementation(projects.config.mediaFeed)
+    implementation(projects.config.audioFeed)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

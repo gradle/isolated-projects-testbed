@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":manager:checkout-post"))
-    implementation(project(":manager:cart-post"))
-    implementation(project(":manager:user-post"))
-    implementation(project(":manager:profile-post"))
-    implementation(project(":manager:feed-post"))
+    implementation(projects.manager.checkoutPost)
+    implementation(projects.manager.cartPost)
+    implementation(projects.manager.userPost)
+    implementation(projects.manager.profilePost)
+    implementation(projects.manager.feedPost)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

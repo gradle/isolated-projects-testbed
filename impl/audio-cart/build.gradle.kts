@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:post-identity"))
-    implementation(project(":service:event-login"))
-    implementation(project(":service:identity-identity"))
+    implementation(projects.service.postIdentity)
+    implementation(projects.service.eventLogin)
+    implementation(projects.service.identityIdentity)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

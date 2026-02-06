@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":core:login"))
-    implementation(project(":core:checkout"))
-    implementation(project(":core:identity"))
+    implementation(projects.core.login)
+    implementation(projects.core.checkout)
+    implementation(projects.core.identity)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

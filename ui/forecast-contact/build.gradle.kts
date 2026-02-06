@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":presentation:session-contact"))
-    implementation(project(":presentation:analytics-contact"))
-    implementation(project(":presentation:location-contact"))
-    implementation(project(":presentation:setting-contact"))
+    implementation(projects.presentation.sessionContact)
+    implementation(projects.presentation.analyticsContact)
+    implementation(projects.presentation.locationContact)
+    implementation(projects.presentation.settingContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

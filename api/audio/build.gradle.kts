@@ -3,14 +3,14 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":data:gallery"))
-    implementation(project(":data:media"))
-    implementation(project(":data:article"))
-    implementation(project(":data:podcast"))
-    implementation(project(":data:photo"))
-    implementation(project(":data:video"))
-    implementation(project(":data:map"))
-    implementation(project(":data:forecast"))
+    implementation(projects.data.gallery)
+    implementation(projects.data.media)
+    implementation(projects.data.article)
+    implementation(projects.data.podcast)
+    implementation(projects.data.photo)
+    implementation(projects.data.video)
+    implementation(projects.data.map)
+    implementation(projects.data.forecast)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

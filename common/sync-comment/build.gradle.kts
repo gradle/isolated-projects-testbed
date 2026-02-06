@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":network:playlist-feed"))
-    implementation(project(":network:push-comment"))
+    implementation(projects.network.playlistFeed)
+    implementation(projects.network.pushComment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

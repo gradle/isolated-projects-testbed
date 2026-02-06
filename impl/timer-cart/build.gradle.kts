@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:cart-identity"))
-    implementation(project(":service:note-login"))
-    implementation(project(":service:location-identity"))
-    implementation(project(":service:metric-identity"))
-    implementation(project(":service:search-identity"))
+    implementation(projects.service.cartIdentity)
+    implementation(projects.service.noteLogin)
+    implementation(projects.service.locationIdentity)
+    implementation(projects.service.metricIdentity)
+    implementation(projects.service.searchIdentity)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":remote:photo-profile"))
-    implementation(project(":remote:login-feed"))
-    implementation(project(":remote:feed-feed"))
-    implementation(project(":remote:search-feed"))
-    implementation(project(":remote:post-feed"))
+    implementation(projects.remote.photoProfile)
+    implementation(projects.remote.loginFeed)
+    implementation(projects.remote.feedFeed)
+    implementation(projects.remote.searchFeed)
+    implementation(projects.remote.postFeed)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,12 +3,12 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:calendar-identity"))
-    implementation(project(":service:setting-identity"))
-    implementation(project(":service:list-identity"))
-    implementation(project(":service:file-login"))
-    implementation(project(":service:network-identity"))
-    implementation(project(":service:todo-login"))
+    implementation(projects.service.calendarIdentity)
+    implementation(projects.service.settingIdentity)
+    implementation(projects.service.listIdentity)
+    implementation(projects.service.fileLogin)
+    implementation(projects.service.networkIdentity)
+    implementation(projects.service.todoLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

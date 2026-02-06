@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":config:video-feed"))
-    implementation(project(":config:audio-feed"))
-    implementation(project(":config:gallery-feed"))
-    implementation(project(":config:media-feed"))
-    implementation(project(":config:note-feed"))
+    implementation(projects.config.videoFeed)
+    implementation(projects.config.audioFeed)
+    implementation(projects.config.galleryFeed)
+    implementation(projects.config.mediaFeed)
+    implementation(projects.config.noteFeed)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

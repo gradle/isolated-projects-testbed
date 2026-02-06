@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":entity:timer"))
-    implementation(project(":entity:note"))
-    implementation(project(":entity:event"))
-    implementation(project(":entity:alarm"))
-    implementation(project(":entity:todo"))
+    implementation(projects.entity.timer)
+    implementation(projects.entity.note)
+    implementation(projects.entity.event)
+    implementation(projects.entity.alarm)
+    implementation(projects.entity.todo)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

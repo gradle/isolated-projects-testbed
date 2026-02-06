@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":config:map-feed"))
-    implementation(project(":config:photo-feed"))
+    implementation(projects.config.mapFeed)
+    implementation(projects.config.photoFeed)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

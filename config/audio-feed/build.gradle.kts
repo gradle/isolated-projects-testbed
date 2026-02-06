@@ -3,12 +3,12 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":local:location-feed"))
-    implementation(project(":local:group-feed"))
-    implementation(project(":local:message-feed"))
-    implementation(project(":local:network-feed"))
-    implementation(project(":local:setting-feed"))
-    implementation(project(":local:timer-feed"))
+    implementation(projects.local.locationFeed)
+    implementation(projects.local.groupFeed)
+    implementation(projects.local.messageFeed)
+    implementation(projects.local.networkFeed)
+    implementation(projects.local.settingFeed)
+    implementation(projects.local.timerFeed)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
