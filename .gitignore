@@ -13,7 +13,7 @@
 .run
 
 # Android Studio
-/local.properties
+local.properties
 
 # Gradle Profiler
 gradle-user-home
