@@ -1,5 +1,5 @@
 plugins {
-    id("awesome.androidlib.plugin")
+    id("awesome-android-lib")
 }
 
 dependencies {

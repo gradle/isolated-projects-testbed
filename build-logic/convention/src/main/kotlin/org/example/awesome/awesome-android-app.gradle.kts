@@ -1,10 +1,4 @@
-import com.logic.asProjectNameToNamespace
-import org.gradle.api.tasks.compile.JavaCompile
-import org.gradle.jvm.toolchain.JavaLanguageVersion
-import org.gradle.jvm.toolchain.JavaToolchainService
-import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.withType
+import org.example.awesome.asProjectNameToNamespace
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 
 plugins {
@@ -43,7 +37,7 @@ extensions.getByType(KotlinAndroidProjectExtension::class.java).apply {
     jvmToolchain(23)
 }
 
-extensions.getByType(org.gradle.api.plugins.JavaPluginExtension::class.java).apply {
+extensions.getByType(JavaPluginExtension::class.java).apply {
     toolchain.languageVersion.set(JavaLanguageVersion.of(23))
 }
 
@@ -58,7 +52,3 @@ tasks.withType<JavaCompile>()
             }
         )
     }
-
-dependencies {
-
-}

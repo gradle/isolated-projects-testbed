@@ -1,5 +1,5 @@
 plugins {
-    id("awesome.androidapp.plugin")
+    id("awesome-android-app")
 }
 
 dependencies {

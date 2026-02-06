@@ -1,4 +1,4 @@
-package com.logic
+package org.example.awesome
 
 
 fun String.asProjectNameToNamespace(): String {
