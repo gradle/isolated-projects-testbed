@@ -1,3 +1,5 @@
+rootProject.name = "android-500-kts"
+
 pluginManagement {
     includeBuild("build-logic")
     repositories {
@@ -6,14 +8,6 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-//plugins {
-//    id("com.gradle.develocity") version "4.3.2"
-//}
-//
-//develocity.buildScan.termsOfUseUrl = "https://gradle.com/help/legal-terms-of-use"
-//develocity.buildScan.termsOfUseAgree = "yes"
-
-rootProject.name = "android-500-kts"
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -22,6 +16,8 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(":core:push")
 include(":core:contact")
@@ -523,5 +519,3 @@ include(":manager:user-post")
 include(":manager:profile-post")
 include(":manager:feed-post")
 include(":app:app")
-
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
