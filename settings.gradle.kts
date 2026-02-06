@@ -523,3 +523,5 @@ include(":manager:user-post")
 include(":manager:profile-post")
 include(":manager:feed-post")
 include(":app:app")
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
