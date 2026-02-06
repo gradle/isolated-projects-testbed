@@ -1,3 +1,4 @@
+import com.android.build.api.dsl.LibraryExtension
 import com.logic.asProjectNameToNamespace
 import org.gradle.api.JavaVersion
 import org.gradle.jvm.toolchain.JavaLanguageVersion
@@ -12,7 +13,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
 }
 
-extensions.configure<com.android.build.gradle.LibraryExtension> {
+extensions.configure<LibraryExtension> {
     namespace = "com.awesome." + project.name.asProjectNameToNamespace()
     compileSdk = 36
     defaultConfig {
