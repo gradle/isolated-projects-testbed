@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":util:login-post"))
+    implementation(projects.util.loginPost)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

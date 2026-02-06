@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":data:forecast"))
+    implementation(projects.data.forecast)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

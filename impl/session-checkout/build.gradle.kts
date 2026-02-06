@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:feed-identity"))
-    implementation(project(":service:session-identity"))
-    implementation(project(":service:weather-identity"))
-    implementation(project(":service:login-identity"))
+    implementation(projects.service.feedIdentity)
+    implementation(projects.service.sessionIdentity)
+    implementation(projects.service.weatherIdentity)
+    implementation(projects.service.loginIdentity)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

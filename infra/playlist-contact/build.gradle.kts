@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":ui:podcast-contact"))
-    implementation(project(":ui:map-contact"))
+    implementation(projects.ui.podcastContact)
+    implementation(projects.ui.mapContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

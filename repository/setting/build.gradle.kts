@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":domain:sync"))
-    implementation(project(":domain:location"))
+    implementation(projects.domain.sync)
+    implementation(projects.domain.location)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

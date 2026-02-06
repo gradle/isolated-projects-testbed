@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":core:contact"))
-    implementation(project(":core:identity"))
-    implementation(project(":core:push"))
+    implementation(projects.core.contact)
+    implementation(projects.core.identity)
+    implementation(projects.core.push)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

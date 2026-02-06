@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":remote:file-profile"))
-    implementation(project(":remote:identity-feed"))
+    implementation(projects.remote.fileProfile)
+    implementation(projects.remote.identityFeed)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

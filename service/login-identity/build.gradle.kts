@@ -3,13 +3,13 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":infra:metric-login"))
-    implementation(project(":infra:comment-login"))
-    implementation(project(":infra:checkout-login"))
-    implementation(project(":infra:location-login"))
-    implementation(project(":infra:cart-login"))
-    implementation(project(":infra:task-login"))
-    implementation(project(":infra:setting-login"))
+    implementation(projects.infra.metricLogin)
+    implementation(projects.infra.commentLogin)
+    implementation(projects.infra.checkoutLogin)
+    implementation(projects.infra.locationLogin)
+    implementation(projects.infra.cartLogin)
+    implementation(projects.infra.taskLogin)
+    implementation(projects.infra.settingLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

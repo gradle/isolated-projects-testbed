@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:status-identity"))
-    implementation(project(":service:forecast-login"))
-    implementation(project(":service:feed-identity"))
-    implementation(project(":service:todo-login"))
-    implementation(project(":service:forecast-identity"))
+    implementation(projects.service.statusIdentity)
+    implementation(projects.service.forecastLogin)
+    implementation(projects.service.feedIdentity)
+    implementation(projects.service.todoLogin)
+    implementation(projects.service.forecastIdentity)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

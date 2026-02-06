@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":presentation:notification-contact"))
+    implementation(projects.presentation.notificationContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

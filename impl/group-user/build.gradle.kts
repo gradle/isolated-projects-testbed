@@ -3,12 +3,12 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:event-login"))
-    implementation(project(":service:metric-identity"))
-    implementation(project(":service:audio-login"))
-    implementation(project(":service:report-identity"))
-    implementation(project(":service:photo-login"))
-    implementation(project(":service:playlist-login"))
+    implementation(projects.service.eventLogin)
+    implementation(projects.service.metricIdentity)
+    implementation(projects.service.audioLogin)
+    implementation(projects.service.reportIdentity)
+    implementation(projects.service.photoLogin)
+    implementation(projects.service.playlistLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":ui:video-contact"))
+    implementation(projects.ui.videoContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

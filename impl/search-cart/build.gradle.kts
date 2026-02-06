@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:map-identity"))
+    implementation(projects.service.mapIdentity)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":local:calendar-feed"))
-    implementation(project(":local:setting-feed"))
-    implementation(project(":local:log-feed"))
-    implementation(project(":local:group-feed"))
-    implementation(project(":local:file-feed"))
+    implementation(projects.local.calendarFeed)
+    implementation(projects.local.settingFeed)
+    implementation(projects.local.logFeed)
+    implementation(projects.local.groupFeed)
+    implementation(projects.local.fileFeed)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,13 +3,13 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":network:post-comment"))
-    implementation(project(":network:checkout-comment"))
-    implementation(project(":network:profile-comment"))
-    implementation(project(":network:comment-comment"))
-    implementation(project(":network:push-comment"))
-    implementation(project(":network:feed-comment"))
-    implementation(project(":network:playlist-feed"))
+    implementation(projects.network.postComment)
+    implementation(projects.network.checkoutComment)
+    implementation(projects.network.profileComment)
+    implementation(projects.network.commentComment)
+    implementation(projects.network.pushComment)
+    implementation(projects.network.feedComment)
+    implementation(projects.network.playlistFeed)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

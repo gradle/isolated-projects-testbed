@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":ui:document-contact"))
-    implementation(project(":ui:list-contact"))
-    implementation(project(":ui:video-contact"))
+    implementation(projects.ui.documentContact)
+    implementation(projects.ui.listContact)
+    implementation(projects.ui.videoContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

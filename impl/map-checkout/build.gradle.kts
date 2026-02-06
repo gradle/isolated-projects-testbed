@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:document-login"))
-    implementation(project(":service:session-identity"))
-    implementation(project(":service:task-identity"))
-    implementation(project(":service:photo-login"))
-    implementation(project(":service:document-identity"))
+    implementation(projects.service.documentLogin)
+    implementation(projects.service.sessionIdentity)
+    implementation(projects.service.taskIdentity)
+    implementation(projects.service.photoLogin)
+    implementation(projects.service.documentIdentity)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

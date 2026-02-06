@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:comment-identity"))
-    implementation(project(":service:notification-identity"))
+    implementation(projects.service.commentIdentity)
+    implementation(projects.service.notificationIdentity)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

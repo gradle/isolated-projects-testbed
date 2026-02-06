@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":util:push-post"))
-    implementation(project(":util:contact-post"))
+    implementation(projects.util.pushPost)
+    implementation(projects.util.contactPost)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:push-identity"))
-    implementation(project(":service:network-identity"))
+    implementation(projects.service.pushIdentity)
+    implementation(projects.service.networkIdentity)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

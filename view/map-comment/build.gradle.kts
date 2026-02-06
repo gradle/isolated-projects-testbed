@@ -3,12 +3,12 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":controller:todo-comment"))
-    implementation(project(":controller:timer-comment"))
-    implementation(project(":controller:file-comment"))
-    implementation(project(":controller:alarm-comment"))
-    implementation(project(":controller:event-comment"))
-    implementation(project(":controller:document-comment"))
+    implementation(projects.controller.todoComment)
+    implementation(projects.controller.timerComment)
+    implementation(projects.controller.fileComment)
+    implementation(projects.controller.alarmComment)
+    implementation(projects.controller.eventComment)
+    implementation(projects.controller.documentComment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

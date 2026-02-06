@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":view:news-comment"))
-    implementation(project(":view:forecast-comment"))
-    implementation(project(":view:list-comment"))
-    implementation(project(":view:article-comment"))
-    implementation(project(":view:map-comment"))
+    implementation(projects.view.newsComment)
+    implementation(projects.view.forecastComment)
+    implementation(projects.view.listComment)
+    implementation(projects.view.articleComment)
+    implementation(projects.view.mapComment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

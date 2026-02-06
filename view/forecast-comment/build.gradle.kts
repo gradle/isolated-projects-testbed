@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":controller:todo-comment"))
-    implementation(project(":controller:note-comment"))
+    implementation(projects.controller.todoComment)
+    implementation(projects.controller.noteComment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

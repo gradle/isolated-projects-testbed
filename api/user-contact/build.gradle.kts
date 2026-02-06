@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":data:weather"))
-    implementation(project(":data:article"))
-    implementation(project(":data:video"))
-    implementation(project(":data:podcast"))
+    implementation(projects.data.weather)
+    implementation(projects.data.article)
+    implementation(projects.data.video)
+    implementation(projects.data.podcast)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

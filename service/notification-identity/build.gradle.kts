@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":infra:network-login"))
-    implementation(project(":infra:status-login"))
+    implementation(projects.infra.networkLogin)
+    implementation(projects.infra.statusLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

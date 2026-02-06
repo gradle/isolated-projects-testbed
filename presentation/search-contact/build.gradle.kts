@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":api:feed-contact"))
-    implementation(project(":api:contact-contact"))
-    implementation(project(":api:login-contact"))
+    implementation(projects.api.feedContact)
+    implementation(projects.api.contactContact)
+    implementation(projects.api.loginContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

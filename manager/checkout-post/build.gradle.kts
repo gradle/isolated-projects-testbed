@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":util:login-post"))
-    implementation(project(":util:playlist-comment"))
-    implementation(project(":util:push-post"))
-    implementation(project(":util:identity-post"))
+    implementation(projects.util.loginPost)
+    implementation(projects.util.playlistComment)
+    implementation(projects.util.pushPost)
+    implementation(projects.util.identityPost)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

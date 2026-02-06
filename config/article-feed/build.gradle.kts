@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":local:metric-feed"))
-    implementation(project(":local:log-feed"))
-    implementation(project(":local:network-feed"))
-    implementation(project(":local:group-feed"))
+    implementation(projects.local.metricFeed)
+    implementation(projects.local.logFeed)
+    implementation(projects.local.networkFeed)
+    implementation(projects.local.groupFeed)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

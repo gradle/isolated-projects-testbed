@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":infra:network-login"))
-    implementation(project(":infra:notification-login"))
-    implementation(project(":infra:task-login"))
-    implementation(project(":infra:account-login"))
+    implementation(projects.infra.networkLogin)
+    implementation(projects.infra.notificationLogin)
+    implementation(projects.infra.taskLogin)
+    implementation(projects.infra.accountLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

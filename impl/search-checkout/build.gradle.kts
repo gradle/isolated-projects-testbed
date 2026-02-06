@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:checkout-identity"))
-    implementation(project(":service:playlist-login"))
+    implementation(projects.service.checkoutIdentity)
+    implementation(projects.service.playlistLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

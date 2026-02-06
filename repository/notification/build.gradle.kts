@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":domain:network"))
+    implementation(projects.domain.network)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

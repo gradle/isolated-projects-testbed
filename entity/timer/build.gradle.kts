@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":model:report"))
-    implementation(project(":model:calendar"))
-    implementation(project(":model:task"))
-    implementation(project(":model:metric"))
+    implementation(projects.model.report)
+    implementation(projects.model.calendar)
+    implementation(projects.model.task)
+    implementation(projects.model.metric)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":presentation:session-contact"))
-    implementation(project(":presentation:notification-contact"))
+    implementation(projects.presentation.sessionContact)
+    implementation(projects.presentation.notificationContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

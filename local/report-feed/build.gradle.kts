@@ -3,14 +3,14 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":remote:note-profile"))
-    implementation(project(":remote:todo-profile"))
-    implementation(project(":remote:photo-profile"))
-    implementation(project(":remote:media-profile"))
-    implementation(project(":remote:timer-profile"))
-    implementation(project(":remote:contact-feed"))
-    implementation(project(":remote:push-feed"))
-    implementation(project(":remote:file-profile"))
+    implementation(projects.remote.noteProfile)
+    implementation(projects.remote.todoProfile)
+    implementation(projects.remote.photoProfile)
+    implementation(projects.remote.mediaProfile)
+    implementation(projects.remote.timerProfile)
+    implementation(projects.remote.contactFeed)
+    implementation(projects.remote.pushFeed)
+    implementation(projects.remote.fileProfile)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

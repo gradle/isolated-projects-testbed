@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":ui:status-contact"))
+    implementation(projects.ui.statusContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,12 +3,12 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":infra:checkout-login"))
-    implementation(project(":infra:notification-login"))
-    implementation(project(":infra:identity-login"))
-    implementation(project(":infra:location-login"))
-    implementation(project(":infra:post-login"))
-    implementation(project(":infra:media-contact"))
+    implementation(projects.infra.checkoutLogin)
+    implementation(projects.infra.notificationLogin)
+    implementation(projects.infra.identityLogin)
+    implementation(projects.infra.locationLogin)
+    implementation(projects.infra.postLogin)
+    implementation(projects.infra.mediaContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":plugin:message-profile"))
-    implementation(project(":plugin:note-user"))
+    implementation(projects.plugin.messageProfile)
+    implementation(projects.plugin.noteUser)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

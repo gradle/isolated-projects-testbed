@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":model:calendar"))
-    implementation(project(":model:task"))
+    implementation(projects.model.calendar)
+    implementation(projects.model.task)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:feed-identity"))
-    implementation(project(":service:timer-identity"))
+    implementation(projects.service.feedIdentity)
+    implementation(projects.service.timerIdentity)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

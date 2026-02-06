@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":presentation:account-contact"))
-    implementation(project(":presentation:message-contact"))
-    implementation(project(":presentation:share-contact"))
-    implementation(project(":presentation:group-contact"))
-    implementation(project(":presentation:search-contact"))
+    implementation(projects.presentation.accountContact)
+    implementation(projects.presentation.messageContact)
+    implementation(projects.presentation.shareContact)
+    implementation(projects.presentation.groupContact)
+    implementation(projects.presentation.searchContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

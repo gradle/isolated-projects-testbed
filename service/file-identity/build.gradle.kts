@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":infra:task-login"))
+    implementation(projects.infra.taskLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

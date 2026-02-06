@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":entity:note"))
+    implementation(projects.entity.note)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

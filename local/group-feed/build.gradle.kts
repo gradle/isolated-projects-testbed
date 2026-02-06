@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":remote:alarm-profile"))
-    implementation(project(":remote:contact-feed"))
-    implementation(project(":remote:photo-profile"))
+    implementation(projects.remote.alarmProfile)
+    implementation(projects.remote.contactFeed)
+    implementation(projects.remote.photoProfile)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

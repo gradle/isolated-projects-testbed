@@ -3,13 +3,13 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":config:news-feed"))
-    implementation(project(":config:photo-feed"))
-    implementation(project(":config:forecast-feed"))
-    implementation(project(":config:podcast-feed"))
-    implementation(project(":config:video-feed"))
-    implementation(project(":config:audio-feed"))
-    implementation(project(":config:document-feed"))
+    implementation(projects.config.newsFeed)
+    implementation(projects.config.photoFeed)
+    implementation(projects.config.forecastFeed)
+    implementation(projects.config.podcastFeed)
+    implementation(projects.config.videoFeed)
+    implementation(projects.config.audioFeed)
+    implementation(projects.config.documentFeed)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

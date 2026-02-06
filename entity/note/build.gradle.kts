@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":model:task"))
-    implementation(project(":model:log"))
-    implementation(project(":model:status"))
+    implementation(projects.model.task)
+    implementation(projects.model.log)
+    implementation(projects.model.status)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

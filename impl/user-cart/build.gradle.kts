@@ -3,14 +3,14 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:alarm-login"))
-    implementation(project(":service:playlist-login"))
-    implementation(project(":service:event-login"))
-    implementation(project(":service:task-identity"))
-    implementation(project(":service:analytics-identity"))
-    implementation(project(":service:cart-identity"))
-    implementation(project(":service:login-identity"))
-    implementation(project(":service:share-identity"))
+    implementation(projects.service.alarmLogin)
+    implementation(projects.service.playlistLogin)
+    implementation(projects.service.eventLogin)
+    implementation(projects.service.taskIdentity)
+    implementation(projects.service.analyticsIdentity)
+    implementation(projects.service.cartIdentity)
+    implementation(projects.service.loginIdentity)
+    implementation(projects.service.shareIdentity)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

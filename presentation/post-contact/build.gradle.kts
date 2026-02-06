@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":api:login-contact"))
+    implementation(projects.api.loginContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

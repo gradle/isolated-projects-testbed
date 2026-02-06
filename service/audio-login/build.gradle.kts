@@ -3,12 +3,12 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":infra:cart-login"))
-    implementation(project(":infra:login-login"))
-    implementation(project(":infra:report-login"))
-    implementation(project(":infra:profile-login"))
-    implementation(project(":infra:network-login"))
-    implementation(project(":infra:audio-contact"))
+    implementation(projects.infra.cartLogin)
+    implementation(projects.infra.loginLogin)
+    implementation(projects.infra.reportLogin)
+    implementation(projects.infra.profileLogin)
+    implementation(projects.infra.networkLogin)
+    implementation(projects.infra.audioContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

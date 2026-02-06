@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":domain:search"))
-    implementation(project(":domain:share"))
-    implementation(project(":domain:network"))
+    implementation(projects.domain.search)
+    implementation(projects.domain.share)
+    implementation(projects.domain.network)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

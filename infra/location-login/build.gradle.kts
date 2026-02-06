@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":ui:video-contact"))
-    implementation(project(":ui:map-contact"))
-    implementation(project(":ui:task-contact"))
-    implementation(project(":ui:status-contact"))
+    implementation(projects.ui.videoContact)
+    implementation(projects.ui.mapContact)
+    implementation(projects.ui.taskContact)
+    implementation(projects.ui.statusContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

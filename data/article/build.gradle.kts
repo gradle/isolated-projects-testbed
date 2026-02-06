@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":entity:todo"))
-    implementation(project(":entity:file"))
+    implementation(projects.entity.todo)
+    implementation(projects.entity.file)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

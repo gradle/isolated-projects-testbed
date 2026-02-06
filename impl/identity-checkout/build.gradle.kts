@@ -3,14 +3,14 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:podcast-login"))
-    implementation(project(":service:share-identity"))
-    implementation(project(":service:forecast-login"))
-    implementation(project(":service:report-identity"))
-    implementation(project(":service:event-login"))
-    implementation(project(":service:forecast-identity"))
-    implementation(project(":service:map-identity"))
-    implementation(project(":service:file-login"))
+    implementation(projects.service.podcastLogin)
+    implementation(projects.service.shareIdentity)
+    implementation(projects.service.forecastLogin)
+    implementation(projects.service.reportIdentity)
+    implementation(projects.service.eventLogin)
+    implementation(projects.service.forecastIdentity)
+    implementation(projects.service.mapIdentity)
+    implementation(projects.service.fileLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

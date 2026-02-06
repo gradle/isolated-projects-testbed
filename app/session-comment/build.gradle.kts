@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":common:group-comment"))
+    implementation(projects.common.groupComment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

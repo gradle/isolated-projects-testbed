@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":infra:setting-login"))
-    implementation(project(":infra:playlist-contact"))
-    implementation(project(":infra:network-login"))
-    implementation(project(":infra:post-login"))
+    implementation(projects.infra.settingLogin)
+    implementation(projects.infra.playlistContact)
+    implementation(projects.infra.networkLogin)
+    implementation(projects.infra.postLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

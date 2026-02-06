@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":controller:document-comment"))
+    implementation(projects.controller.documentComment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

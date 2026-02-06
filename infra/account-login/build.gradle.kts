@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":ui:article-contact"))
+    implementation(projects.ui.articleContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":ui:calendar-contact"))
-    implementation(project(":ui:task-contact"))
-    implementation(project(":ui:forecast-contact"))
-    implementation(project(":ui:note-contact"))
-    implementation(project(":ui:article-contact"))
+    implementation(projects.ui.calendarContact)
+    implementation(projects.ui.taskContact)
+    implementation(projects.ui.forecastContact)
+    implementation(projects.ui.noteContact)
+    implementation(projects.ui.articleContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

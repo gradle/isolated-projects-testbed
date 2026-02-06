@@ -3,10 +3,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":presentation:search-contact"))
-    implementation(project(":presentation:analytics-contact"))
-    implementation(project(":presentation:sync-contact"))
-    implementation(project(":presentation:location-contact"))
+    implementation(projects.presentation.searchContact)
+    implementation(projects.presentation.analyticsContact)
+    implementation(projects.presentation.syncContact)
+    implementation(projects.presentation.locationContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

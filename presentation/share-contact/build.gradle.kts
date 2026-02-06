@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":api:playlist"))
-    implementation(project(":api:audio"))
-    implementation(project(":api:cart-contact"))
-    implementation(project(":api:login-contact"))
-    implementation(project(":api:profile-contact"))
+    implementation(projects.api.playlist)
+    implementation(projects.api.audio)
+    implementation(projects.api.cartContact)
+    implementation(projects.api.loginContact)
+    implementation(projects.api.profileContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -3,12 +3,12 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":infra:metric-login"))
-    implementation(project(":infra:status-login"))
-    implementation(project(":infra:account-login"))
-    implementation(project(":infra:session-login"))
-    implementation(project(":infra:log-login"))
-    implementation(project(":infra:push-login"))
+    implementation(projects.infra.metricLogin)
+    implementation(projects.infra.statusLogin)
+    implementation(projects.infra.accountLogin)
+    implementation(projects.infra.sessionLogin)
+    implementation(projects.infra.logLogin)
+    implementation(projects.infra.pushLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

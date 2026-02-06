@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":ui:article-contact"))
-    implementation(project(":ui:news-contact"))
-    implementation(project(":ui:weather-contact"))
-    implementation(project(":ui:status-contact"))
-    implementation(project(":ui:list-contact"))
+    implementation(projects.ui.articleContact)
+    implementation(projects.ui.newsContact)
+    implementation(projects.ui.weatherContact)
+    implementation(projects.ui.statusContact)
+    implementation(projects.ui.listContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

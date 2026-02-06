@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":remote:feed-feed"))
-    implementation(project(":remote:post-feed"))
-    implementation(project(":remote:checkout-feed"))
-    implementation(project(":remote:identity-feed"))
-    implementation(project(":remote:alarm-profile"))
+    implementation(projects.remote.feedFeed)
+    implementation(projects.remote.postFeed)
+    implementation(projects.remote.checkoutFeed)
+    implementation(projects.remote.identityFeed)
+    implementation(projects.remote.alarmProfile)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

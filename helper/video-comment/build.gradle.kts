@@ -3,9 +3,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":view:forecast-comment"))
-    implementation(project(":view:article-comment"))
-    implementation(project(":view:weather-comment"))
+    implementation(projects.view.forecastComment)
+    implementation(projects.view.articleComment)
+    implementation(projects.view.weatherComment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)

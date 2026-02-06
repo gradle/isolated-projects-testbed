@@ -3,12 +3,12 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":service:todo-login"))
-    implementation(project(":service:news-login"))
-    implementation(project(":service:location-identity"))
-    implementation(project(":service:video-login"))
-    implementation(project(":service:search-identity"))
-    implementation(project(":service:media-login"))
+    implementation(projects.service.todoLogin)
+    implementation(projects.service.newsLogin)
+    implementation(projects.service.locationIdentity)
+    implementation(projects.service.videoLogin)
+    implementation(projects.service.searchIdentity)
+    implementation(projects.service.mediaLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
