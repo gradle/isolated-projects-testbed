@@ -156,7 +156,7 @@ fsync_pip_iip = ${base_fsync} ${mode_iip} {title = "First sync (cached deps). Pa
 # Resync. Build-logic classpath ABI change. Cold daemon
 base_bl_abi_change_cold = ${base_scenario} {
   daemon = cold
-  apply-abi-change-to = "build-logic/convention/src/main/kotlin/com/logic/utils.kt"
+  apply-abi-change-to = "build-logic/convention/src/main/kotlin/org/example/awesome/utils.kt"
 }
 resync_bl_abi_change_vt_cold = ${base_bl_abi_change_cold} {title = "Resync. Build-logic ABI change. Vintage. Cold"}
 resync_bl_abi_change_cc_cold = ${base_bl_abi_change_cold} ${mode_cc} {title = "Resync. Build-logic ABI change. CC. Cold"}
@@ -169,7 +169,7 @@ resync_bl_abi_change_pip_iip_cold = ${base_bl_abi_change_cold} ${mode_iip} {titl
 # Resync. Build-logic classpath ABI change. Warm daemon
 base_bl_abi_change_warm = ${base_scenario} {
   daemon = warm
-  apply-abi-change-to = "build-logic/convention/src/main/kotlin/com/logic/utils.kt"
+  apply-abi-change-to = "build-logic/convention/src/main/kotlin/org/example/awesome/utils.kt"
 }
 resync_bl_abi_change_vt_warm = ${base_bl_abi_change_warm} {title = "Resync. Build-logic ABI change. Vintage. Warm"}
 resync_bl_abi_change_cc_warm = ${base_bl_abi_change_warm} ${mode_cc} {title = "Resync. Build-logic ABI change. CC. Warm"}
