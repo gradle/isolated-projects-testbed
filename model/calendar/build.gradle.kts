@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(projects.repository.group)
+    implementation(projects.repository.groups)
     implementation(projects.repository.account)
     implementation(projects.repository.notification)
     implementation(projects.repository.setting)

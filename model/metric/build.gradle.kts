@@ -5,7 +5,7 @@ plugins {
 dependencies {
     implementation(projects.repository.message)
     implementation(projects.repository.session)
-    implementation(projects.repository.group)
+    implementation(projects.repository.groups)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
