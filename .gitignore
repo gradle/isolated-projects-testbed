@@ -18,3 +18,4 @@ local.properties
 # Gradle Profiler
 gradle-user-home
 profile-out*
+/run.sh
