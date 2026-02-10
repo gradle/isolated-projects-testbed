@@ -20,6 +20,11 @@ dependencies {
     implementation(libs.hilt.work)
     implementation(libs.hilt.android)
     
+    // Room
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+    
     ksp(libs.hilt.compiler.androidx)
     ksp(libs.hilt.compiler)
     kspTest(libs.hilt.compiler)
