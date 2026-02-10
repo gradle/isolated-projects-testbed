@@ -1,5 +1,6 @@
 import com.android.build.api.dsl.LibraryExtension
 import org.example.awesome.asProjectNameToNamespace
+import org.example.awesome.javaToolchainVersion
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 
 plugins {
@@ -26,8 +27,8 @@ extensions.configure<LibraryExtension> {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_23
-        targetCompatibility = JavaVersion.VERSION_23
+        sourceCompatibility = JavaVersion.toVersion(javaToolchainVersion)
+        targetCompatibility = JavaVersion.toVersion(javaToolchainVersion)
     }
     buildFeatures {
         compose = true
@@ -35,9 +36,9 @@ extensions.configure<LibraryExtension> {
 }
 
 extensions.getByType(KotlinAndroidProjectExtension::class.java).apply {
-    jvmToolchain(23)
+    jvmToolchain(javaToolchainVersion)
 }
 
 extensions.getByType(JavaPluginExtension::class.java).apply {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(23))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(javaToolchainVersion))
 }

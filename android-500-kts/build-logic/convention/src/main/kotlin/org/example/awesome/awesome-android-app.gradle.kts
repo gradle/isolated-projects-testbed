@@ -1,4 +1,5 @@
 import org.example.awesome.asProjectNameToNamespace
+import org.example.awesome.javaToolchainVersion
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 
 plugins {
@@ -34,11 +35,11 @@ extensions.configure<com.android.build.api.dsl.ApplicationExtension> {
 }
 
 extensions.getByType(KotlinAndroidProjectExtension::class.java).apply {
-    jvmToolchain(23)
+    jvmToolchain(javaToolchainVersion)
 }
 
 extensions.getByType(JavaPluginExtension::class.java).apply {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(23))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(javaToolchainVersion))
 }
 
 // Hilt missing Java Toolchain support https://github.com/google/dagger/issues/4623
@@ -48,7 +49,7 @@ tasks.withType<JavaCompile>()
     .configureEach {
         javaCompiler.set(
             toolchains.compilerFor {
-                languageVersion.set(JavaLanguageVersion.of(23))
+                languageVersion.set(JavaLanguageVersion.of(javaToolchainVersion))
             }
         )
     }
