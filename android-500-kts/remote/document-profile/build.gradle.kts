@@ -1,5 +1,6 @@
 plugins {
     id("awesome-android-lib")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 dependencies {
@@ -38,6 +39,13 @@ dependencies {
     implementation(libs.work.runtime.ktx)
     implementation(libs.hilt.work)
     implementation(libs.hilt.android)
+    
+    // Retrofit & Serialization
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.kotlin.serialization)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+    implementation(libs.kotlinx.serialization.json)
     
     ksp(libs.hilt.compiler.androidx)
     ksp(libs.hilt.compiler)
