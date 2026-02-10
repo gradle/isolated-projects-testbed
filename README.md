@@ -9,7 +9,7 @@ Various scenarios for Sync are located in [android-sync.scenarios](./android-syn
 They require:
 
 - [Gradle Profiler](https://github.com/gradle/gradle-profiler#installing) `v0.23.0` or later
-- Java 23 toolchain
+- Java 21 toolchain
 
 Run Sync benchmarks from the root of this repository, and not from the project directory.
 You want the Gradle User Home directory used for benchmarks to be located outside of the project directory.
