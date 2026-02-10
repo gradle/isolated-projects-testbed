@@ -1,6 +1,5 @@
 plugins {
     id("awesome-android-lib")
-    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 dependencies {
