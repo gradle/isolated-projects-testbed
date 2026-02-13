@@ -8,7 +8,7 @@ Various scenarios for Sync are located in [android-sync.scenarios](./android-syn
 
 They require:
 
-- [Gradle Profiler](https://github.com/gradle/gradle-profiler#installing) `v0.23.0` or later
+- [Gradle Profiler](https://github.com/gradle/gradle-profiler#installing) `v0.24.0-alpha-2` or later
 - Java 21 toolchain
 
 Run Sync benchmarks from the root of this repository, and not from the project directory.
@@ -20,7 +20,7 @@ gradle-profiler --benchmark \
   --scenario-file android-sync.scenarios \
   --project-dir android-500-kts \
   --studio-install-dir '/path/to/Applications/Android Studio.app' \
-  --gradle-version 9.2.0-rc-1 \
+  --gradle-version 9.5.0-milestone-2 \
   --csv-format long \
   resync_st_scr_change_pip_warm
 ```
