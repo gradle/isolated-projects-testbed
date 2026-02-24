@@ -8,6 +8,9 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+}
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -519,3 +522,7 @@ include(":manager:user-post")
 include(":manager:profile-post")
 include(":manager:feed-post")
 include(":app:app")
+
+println("_16a6b79b_999b_4f73_8a67_58c95af8a6c2_resync_st_scr_change_cc_warm_b878fdba_WARM_UP_1")
+
+println("_36de26c2_085a_4f2d_8e21_3acb1174f71f_resync_st_scr_change_cc_warm_b878fdba_MEASURE_2")

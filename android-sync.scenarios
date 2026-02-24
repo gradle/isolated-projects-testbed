@@ -3,34 +3,45 @@
 default-scenarios = []
 
 scenario-groups {
-  fsync_all = [fsync_vt, fsync_cc, fsync_pcc, fsync_pcc_par, fsync_pcc_par_cod, fsync_pip, fsync_pip_iip]
-  fsync = [fsync_pcc, fsync_pcc_par, fsync_pip, fsync_pip_iip]
+  fsync_all = [fsync_vt, fsync_cc, fsync_pcc, fsync_pcc_par, fsync_pcc_par_cod, fsync_pip, fsync_pip_iip, fsync_max_workers, fsync_2_workers]
+  fsync = [fsync_pcc, fsync_pcc_par, fsync_pip, fsync_pip_iip, fsync_max_workers, fsync_2_workers]
+  fsync_workers = [fsync_max_workers, fsync_2_workers]
 
-  resync_bl_abi_change_cold_all = [resync_bl_abi_change_vt_cold, resync_bl_abi_change_cc_cold, resync_bl_abi_change_pcc_cold, resync_bl_abi_change_pcc_par_cold, resync_bl_abi_change_pcc_par_cod_cold, resync_bl_abi_change_pip_cold, resync_bl_abi_change_pip_iip_cold]
-  resync_bl_abi_change_cold = [resync_bl_abi_change_cc_cold, resync_bl_abi_change_pcc_par_cold, resync_bl_abi_change_pip_cold]
+  resync_bl_abi_change_cold_all = [resync_bl_abi_change_vt_cold, resync_bl_abi_change_cc_cold, resync_bl_abi_change_pcc_cold, resync_bl_abi_change_pcc_par_cold, resync_bl_abi_change_pcc_par_cod_cold, resync_bl_abi_change_pip_cold, resync_bl_abi_change_pip_iip_cold, resync_bl_abi_change_max_workers_cold, resync_bl_abi_change_2_workers_cold]
+  resync_bl_abi_change_cold = [resync_bl_abi_change_cc_cold, resync_bl_abi_change_pcc_par_cold, resync_bl_abi_change_pip_cold, resync_bl_abi_change_max_workers_cold, resync_bl_abi_change_2_workers_cold]
+  resync_bl_abi_change_cold_workers = [resync_bl_abi_change_max_workers_cold, resync_bl_abi_change_2_workers_cold]
 
-  resync_bl_abi_change_warm_all = [resync_bl_abi_change_vt_warm, resync_bl_abi_change_cc_warm, resync_bl_abi_change_pcc_warm, resync_bl_abi_change_pcc_par_warm, resync_bl_abi_change_pcc_par_cod_warm, resync_bl_abi_change_pip_warm, resync_bl_abi_change_pip_iip_warm]
-  resync_bl_abi_change_warm = [resync_bl_abi_change_cc_warm, resync_bl_abi_change_pcc_par_warm, resync_bl_abi_change_pip_warm]
+  resync_bl_abi_change_warm_all = [resync_bl_abi_change_vt_warm, resync_bl_abi_change_cc_warm, resync_bl_abi_change_pcc_warm, resync_bl_abi_change_pcc_par_warm, resync_bl_abi_change_pcc_par_cod_warm, resync_bl_abi_change_pip_warm, resync_bl_abi_change_pip_iip_warm, resync_bl_abi_change_max_workers_warm, resync_bl_abi_change_2_workers_warm]
+  resync_bl_abi_change_warm = [resync_bl_abi_change_cc_warm, resync_bl_abi_change_pcc_par_warm, resync_bl_abi_change_pip_warm, resync_bl_abi_change_max_workers_warm, resync_bl_abi_change_2_workers_warm]
+  resync_bl_abi_change_warm_workers = [resync_bl_abi_change_max_workers_warm, resync_bl_abi_change_2_workers_warm]
 
-  resync_st_scr_change_cold_all = [resync_st_scr_change_vt_cold, resync_st_scr_change_cc_cold, resync_st_scr_change_pcc_cold, resync_st_scr_change_pcc_par_cold, resync_st_scr_change_pcc_par_cod_cold, resync_st_scr_change_pip_cold, resync_st_scr_change_pip_iip_cold]
-  resync_st_scr_change_cold = [resync_st_scr_change_cc_cold, resync_st_scr_change_pcc_par_cold, resync_st_scr_change_pip_cold]
+  resync_st_scr_change_cold_all = [resync_st_scr_change_vt_cold, resync_st_scr_change_cc_cold, resync_st_scr_change_pcc_cold, resync_st_scr_change_pcc_par_cold, resync_st_scr_change_pcc_par_cod_cold, resync_st_scr_change_pip_cold, resync_st_scr_change_pip_iip_cold, resync_st_scr_change_max_workers_cold, resync_st_scr_change_2_workers_cold]
+  resync_st_scr_change_cold = [resync_st_scr_change_cc_cold, resync_st_scr_change_pcc_par_cold, resync_st_scr_change_pip_cold, resync_st_scr_change_max_workers_cold, resync_st_scr_change_2_workers_cold]
+  resync_st_scr_change_cold_workers = [resync_st_scr_change_max_workers_cold, resync_st_scr_change_2_workers_cold]
 
-  resync_st_scr_change_warm_all = [resync_st_scr_change_vt_warm, resync_st_scr_change_cc_warm, resync_st_scr_change_pcc_warm, resync_st_scr_change_pcc_par_warm, resync_st_scr_change_pcc_par_cod_warm, resync_st_scr_change_pip_warm, resync_st_scr_change_pip_iip_warm]
-  resync_st_scr_change_warm = [resync_st_scr_change_cc_warm, resync_st_scr_change_pcc_par_warm, resync_st_scr_change_pip_warm]
+  resync_st_scr_change_warm_all = [resync_st_scr_change_vt_warm, resync_st_scr_change_cc_warm, resync_st_scr_change_pcc_warm, resync_st_scr_change_pcc_par_warm, resync_st_scr_change_pcc_par_cod_warm, resync_st_scr_change_pip_warm, resync_st_scr_change_pip_iip_warm, resync_st_scr_change_max_workers_warm, resync_st_scr_change_2_workers_warm]
+  resync_st_scr_change_warm = [resync_st_scr_change_cc_warm, resync_st_scr_change_pcc_par_warm, resync_st_scr_change_pip_warm, resync_st_scr_change_max_workers_warm, resync_st_scr_change_2_workers_warm]
+  resync_st_scr_change_warm_workers = [resync_st_scr_change_max_workers_warm, resync_st_scr_change_2_workers_warm]
 
-  resync_pr_scr_change_cold_all = [resync_pr_scr_change_vt_cold, resync_pr_scr_change_cc_cold, resync_pr_scr_change_pcc_cold, resync_pr_scr_change_pcc_par_cold, resync_pr_scr_change_pcc_par_cod_cold, resync_pr_scr_change_pip_cold, resync_pr_scr_change_pip_iip_cold]
-  resync_pr_scr_change_cold = [resync_pr_scr_change_cc_cold, resync_pr_scr_change_pcc_par_cold, resync_pr_scr_change_pip_cold]
+  resync_pr_scr_change_cold_all = [resync_pr_scr_change_vt_cold, resync_pr_scr_change_cc_cold, resync_pr_scr_change_pcc_cold, resync_pr_scr_change_pcc_par_cold, resync_pr_scr_change_pcc_par_cod_cold, resync_pr_scr_change_pip_cold, resync_pr_scr_change_pip_iip_cold, resync_pr_scr_change_max_workers_cold, resync_pr_scr_change_2_workers_cold]
+  resync_pr_scr_change_cold = [resync_pr_scr_change_cc_cold, resync_pr_scr_change_pcc_par_cold, resync_pr_scr_change_pip_cold, resync_pr_scr_change_max_workers_cold, resync_pr_scr_change_2_workers_cold]
+  resync_pr_scr_change_cold_workers = [resync_pr_scr_change_max_workers_cold, resync_pr_scr_change_2_workers_cold]
 
-  resync_pr_scr_change_warm_all = [resync_pr_scr_change_vt_warm, resync_pr_scr_change_cc_warm, resync_pr_scr_change_pcc_warm, resync_pr_scr_change_pcc_par_warm, resync_pr_scr_change_pcc_par_cod_warm, resync_pr_scr_change_pip_warm, resync_pr_scr_change_pip_iip_warm]
-  resync_pr_scr_change_warm = [resync_pr_scr_change_cc_warm, resync_pr_scr_change_pcc_par_warm, resync_pr_scr_change_pip_warm]
+  resync_pr_scr_change_warm_all = [resync_pr_scr_change_vt_warm, resync_pr_scr_change_cc_warm, resync_pr_scr_change_pcc_warm, resync_pr_scr_change_pcc_par_warm, resync_pr_scr_change_pcc_par_cod_warm, resync_pr_scr_change_pip_warm, resync_pr_scr_change_pip_iip_warm, resync_pr_scr_change_max_workers_warm, resync_pr_scr_change_2_workers_warm]
+  resync_pr_scr_change_warm = [resync_pr_scr_change_cc_warm, resync_pr_scr_change_pcc_par_warm, resync_pr_scr_change_pip_warm, resync_pr_scr_change_max_workers_warm, resync_pr_scr_change_2_workers_warm]
+  resync_pr_scr_change_warm_workers = [resync_pr_scr_change_max_workers_warm, resync_pr_scr_change_2_workers_warm]
 
-  resync_no_change_cold_all = [resync_no_change_vt_cold, resync_no_change_cc_cold, resync_no_change_pcc_cold, resync_no_change_pcc_par_cold, resync_no_change_pcc_par_cod_cold, resync_no_change_pip_cold, resync_no_change_pip_iip_cold]
-  resync_no_change_cold = [resync_no_change_cc_cold, resync_no_change_pcc_par_cold, resync_no_change_pip_cold]
+  resync_no_change_cold_all = [resync_no_change_vt_cold, resync_no_change_cc_cold, resync_no_change_pcc_cold, resync_no_change_pcc_par_cold, resync_no_change_pcc_par_cod_cold, resync_no_change_pip_cold, resync_no_change_pip_iip_cold, resync_no_change_max_workers_cold, resync_no_change_2_workers_cold]
+  resync_no_change_cold = [resync_no_change_cc_cold, resync_no_change_pcc_par_cold, resync_no_change_pip_cold, resync_no_change_max_workers_cold, resync_no_change_2_workers_cold]
+  resync_no_change_cold_workers = [resync_no_change_max_workers_cold, resync_no_change_2_workers_cold]
 
-  resync_no_change_warm_all = [resync_no_change_vt_warm, resync_no_change_cc_warm, resync_no_change_pcc_warm, resync_no_change_pcc_par_warm, resync_no_change_pcc_par_cod_warm, resync_no_change_pip_warm, resync_no_change_pip_iip_warm]
-  resync_no_change_warm = [resync_no_change_cc_warm, resync_no_change_pcc_par_warm, resync_no_change_pip_warm]
-  
+  resync_no_change_warm_all = [resync_no_change_vt_warm, resync_no_change_cc_warm, resync_no_change_pcc_warm, resync_no_change_pcc_par_warm, resync_no_change_pcc_par_cod_warm, resync_no_change_pip_warm, resync_no_change_pip_iip_warm, resync_no_change_max_workers_warm, resync_no_change_2_workers_warm]
+  resync_no_change_warm = [resync_no_change_cc_warm, resync_no_change_pcc_par_warm, resync_no_change_pip_warm, resync_no_change_max_workers_warm, resync_no_change_2_workers_warm]
+  resync_no_change_warm_workers = [resync_no_change_max_workers_warm, resync_no_change_2_workers_warm]
+
   all = ${scenario-groups.fsync_all} ${scenario-groups.resync_bl_abi_change_cold_all} ${scenario-groups.resync_bl_abi_change_warm_all} ${scenario-groups.resync_st_scr_change_cold_all} ${scenario-groups.resync_st_scr_change_warm_all} ${scenario-groups.resync_pr_scr_change_cold_all} ${scenario-groups.resync_pr_scr_change_warm_all} ${scenario-groups.resync_no_change_cold_all} ${scenario-groups.resync_no_change_warm_all}
+
+  workers = [fsync_workers, ${scenario-groups.resync_bl_abi_change_cold_workers}, ${scenario-groups.resync_bl_abi_change_warm_workers}, ${scenario-groups.resync_st_scr_change_cold_workers}, ${scenario-groups.resync_st_scr_change_warm_workers}, ${scenario-groups.resync_pr_scr_change_cold_workers}, ${scenario-groups.resync_pr_scr_change_warm_workers}, ${scenario-groups.resync_no_change_cold_workers}, ${scenario-groups.resync_no_change_warm_workers}]
 }
 
 base_jvm_args = [
@@ -170,6 +181,16 @@ mode_iip {
     "-Dorg.gradle.internal.isolated-projects.caching=tooling"
   ]
 }
+mode_max_workers {
+  system-properties {
+    "org.gradle.workers.max" = "-1"
+  }
+}
+mode_2_workers {
+  system-properties {
+    "org.gradle.workers.max" = "2"
+  }
+}
 
 #######################################################
 # Android Studio Sync                                 #
@@ -186,6 +207,8 @@ fsync_pcc_par = ${base_fsync} ${mode_pcc_par} {title = "First sync (cached deps)
 fsync_pcc_par_cod = ${base_fsync} ${mode_pcc_par_cod} {title = "First sync (cached deps). ParCC and ParExecution and CoD"}
 fsync_pip = ${base_fsync} ${mode_ip} {title = "First sync (cached deps). ParIP"}
 fsync_pip_iip = ${base_fsync} ${mode_iip} {title = "First sync (cached deps). ParIP and IncIP"}
+fsync_max_workers = ${base_fsync} ${mode_max_workers} {title = "First sync (cached deps). Max Workers"}
+fsync_2_workers = ${base_fsync} ${mode_2_workers} {title = "First sync (cached deps). 2 Workers"}
 
 # Resync. Build-logic classpath ABI change. Cold daemon
 base_bl_abi_change_cold = ${base_scenario} {
@@ -199,6 +222,8 @@ resync_bl_abi_change_pcc_par_cold = ${base_bl_abi_change_cold} ${mode_pcc_par} {
 resync_bl_abi_change_pcc_par_cod_cold = ${base_bl_abi_change_cold} ${mode_pcc_par_cod} {title = "Resync. Build-logic ABI change. ParCC and ParExec and CoD. Cold"}
 resync_bl_abi_change_pip_cold = ${base_bl_abi_change_cold} ${mode_ip} {title = "Resync. Build-logic ABI change. ParIP. Cold"}
 resync_bl_abi_change_pip_iip_cold = ${base_bl_abi_change_cold} ${mode_iip} {title = "Resync. Build-logic ABI change. ParIP and IncIP. Cold"}
+resync_bl_abi_change_pip_max_workers_cold = ${base_bl_abi_change_cold} ${mode_max_workers} ${mode_ip} {title = "Resync. Build-logic ABI change. ParIP. Max Workers. Cold"}
+resync_bl_abi_change_pip_2_workers_cold = ${base_bl_abi_change_cold} ${mode_2_workers} ${mode_ip} {title = "Resync. Build-logic ABI change.  ParIP. 2 Workers. Cold"}
 
 # Resync. Build-logic classpath ABI change. Warm daemon
 base_bl_abi_change_warm = ${base_scenario} {
@@ -212,6 +237,8 @@ resync_bl_abi_change_pcc_par_warm = ${base_bl_abi_change_warm} ${mode_pcc_par} {
 resync_bl_abi_change_pcc_par_cod_warm = ${base_bl_abi_change_warm} ${mode_pcc_par_cod} {title = "Resync. Build-logic ABI change. ParCC and ParExec and CoD. Warm"}
 resync_bl_abi_change_pip_warm = ${base_bl_abi_change_warm} ${mode_ip} {title = "Resync. Build-logic ABI change. ParIP. Warm"}
 resync_bl_abi_change_pip_iip_warm = ${base_bl_abi_change_warm} ${mode_iip} {title = "Resync. Build-logic ABI change. ParIP and IncIP. Warm"}
+resync_bl_abi_change_pip_max_workers_warm = ${base_bl_abi_change_warm} ${mode_max_workers} ${mode_ip} {title = "Resync. Build-logic ABI change. ParIP. Max Workers. Warm"}
+resync_bl_abi_change_pip_2_workers_warm = ${base_bl_abi_change_warm} ${mode_2_workers} ${mode_ip} {title = "Resync. Build-logic ABI change. ParIP. 2 Workers. Warm"}
 
 # Resync. Settings script change. Cold daemon
 base_st_scr_change_cold = ${base_scenario} {
@@ -225,6 +252,8 @@ resync_st_scr_change_pcc_par_cold = ${base_st_scr_change_cold} ${mode_pcc_par} {
 resync_st_scr_change_pcc_par_cod_cold = ${base_st_scr_change_cold} ${mode_pcc_par_cod} {title = "Resync. Settings change. ParCC and ParExec and CoD. Cold"}
 resync_st_scr_change_pip_cold = ${base_st_scr_change_cold} ${mode_ip} {title = "Resync. Settings change. ParIP. Cold"}
 resync_st_scr_change_pip_iip_cold = ${base_st_scr_change_cold} ${mode_iip} {title = "Resync. Settings change. ParIP and IncIP. Cold"}
+resync_st_scr_change_max_workers_cold = ${base_st_scr_change_cold} ${mode_max_workers} {title = "Resync. Settings change. Max Workers. Cold"}
+resync_st_scr_change_2_workers_cold = ${base_st_scr_change_cold} ${mode_2_workers} {title = "Resync. Settings change. 2 Workers. Cold"}
 
 # Resync. Settings script change. Warm daemon
 base_st_scr_change_warm = ${base_scenario} {
@@ -238,6 +267,8 @@ resync_st_scr_change_pcc_par_warm = ${base_st_scr_change_warm} ${mode_pcc_par} {
 resync_st_scr_change_pcc_par_cod_warm = ${base_st_scr_change_warm} ${mode_pcc_par_cod} {title = "Resync. Settings change. ParCC and ParExec and CoD. Warm"}
 resync_st_scr_change_pip_warm = ${base_st_scr_change_warm} ${mode_ip} {title = "Resync. Settings change. ParIP. Warm"}
 resync_st_scr_change_pip_iip_warm = ${base_st_scr_change_warm} ${mode_iip} {title = "Resync. Settings change. ParIP and IncIP. Warm"}
+resync_st_scr_change_max_workers_warm = ${base_st_scr_change_warm} ${mode_max_workers} {title = "Resync. Settings change. Max Workers. Warm"}
+resync_st_scr_change_2_workers_warm = ${base_st_scr_change_warm} ${mode_2_workers} {title = "Resync. Settings change. 2 Workers. Warm"}
 
 # Resync. Project build script change. Cold daemon
 base_pr_scr_change_cold = ${base_scenario} {
@@ -251,6 +282,8 @@ resync_pr_scr_change_pcc_par_cold = ${base_pr_scr_change_cold} ${mode_pcc_par} {
 resync_pr_scr_change_pcc_par_cod_cold = ${base_pr_scr_change_cold} ${mode_pcc_par_cod} {title = "Resync. Project change. ParCC and ParExec and CoD. Cold"}
 resync_pr_scr_change_pip_cold = ${base_pr_scr_change_cold} ${mode_ip} {title = "Resync. Project change. ParIP. Cold"}
 resync_pr_scr_change_pip_iip_cold = ${base_pr_scr_change_cold} ${mode_iip} {title = "Resync. Project change. ParIP and IncIp. Cold"}
+resync_pr_scr_change_max_workers_cold = ${base_pr_scr_change_cold} ${mode_max_workers} {title = "Resync. Project change. Max Workers. Cold"}
+resync_pr_scr_change_2_workers_cold = ${base_pr_scr_change_cold} ${mode_2_workers} {title = "Resync. Project change. 2 Workers. Cold"}
 
 # Resync. Project build script change. Warm daemon
 base_pr_scr_change_warm = ${base_scenario} {
@@ -264,6 +297,8 @@ resync_pr_scr_change_pcc_par_warm = ${base_pr_scr_change_warm} ${mode_pcc_par} {
 resync_pr_scr_change_pcc_par_cod_warm = ${base_pr_scr_change_warm} ${mode_pcc_par_cod} {title = "Resync. Project change. ParCC and ParExec and CoD. Warm"}
 resync_pr_scr_change_pip_warm = ${base_pr_scr_change_warm} ${mode_ip} {title = "Resync. Project change. ParIP. Warm"}
 resync_pr_scr_change_pip_iip_warm = ${base_pr_scr_change_warm} ${mode_iip} {title = "Resync. Project change. ParIP and IncIp. Warm"}
+resync_pr_scr_change_max_workers_warm = ${base_pr_scr_change_warm} ${mode_max_workers} {title = "Resync. Project change. Max Workers. Warm"}
+resync_pr_scr_change_2_workers_warm = ${base_pr_scr_change_warm} ${mode_2_workers} {title = "Resync. Project change. 2 Workers. Warm"}
 
 # Resync. No change. Cold daemon
 base_no_change_cold = ${base_scenario} {
@@ -276,6 +311,8 @@ resync_no_change_pcc_par_cold = ${base_no_change_cold} ${mode_pcc_par} {title = 
 resync_no_change_pcc_par_cod_cold = ${base_no_change_cold} ${mode_pcc_par_cod} {title = "Resync. No change. ParCC and ParExec and CoD. Cold"}
 resync_no_change_pip_cold = ${base_no_change_cold} ${mode_ip} {title = "Resync. No change. ParIP. Cold"}
 resync_no_change_pip_iip_cold = ${base_no_change_cold} ${mode_iip} {title = "Resync. No change. ParIP and IncIP. Cold"}
+resync_no_change_max_workers_cold = ${base_no_change_cold} ${mode_max_workers} {title = "Resync. No change. Max Workers. Cold"}
+resync_no_change_2_workers_cold = ${base_no_change_cold} ${mode_2_workers} {title = "Resync. No change. 2 Workers. Cold"}
 
 # Resync. No change. Warm daemon
 base_no_change_warm = ${base_scenario} {
@@ -288,6 +325,8 @@ resync_no_change_pcc_par_warm = ${base_no_change_warm} ${mode_pcc_par} {title = 
 resync_no_change_pcc_par_cod_warm = ${base_no_change_warm} ${mode_pcc_par_cod} {title = "Resync. No change. ParCC and ParExec and CoD. Warm"}
 resync_no_change_pip_warm = ${base_no_change_warm} ${mode_ip} {title = "Resync. No change. ParIP. Warm"}
 resync_no_change_pip_iip_warm = ${base_no_change_warm} ${mode_iip} {title = "Resync. No change. ParIP and IncIP. Warm"}
+resync_no_change_max_workers_warm = ${base_no_change_warm} ${mode_max_workers} {title = "Resync. No change. Max Workers. Warm"}
+resync_no_change_2_workers_warm = ${base_no_change_warm} ${mode_2_workers} {title = "Resync. No change. 2 Workers. Warm"}
 
 #######################################################
 # Command-line 'help --dry-run'                       #
