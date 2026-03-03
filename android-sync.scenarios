@@ -1,4 +1,21 @@
-# Requires Gradle Profiler v0.24.0-alpha-2 or later
+# Requires Gradle Profiler v0.24.0 or later
+# https://github.com/gradle/gradle-profiler/releases
+
+# This is a set of parameters that allows re-using this scenario file for other setups
+# The parameter values can be either changed directly here or controlled by environment variables
+setup-parameters {
+  max-workers = "8"
+  max-workers = ${?SCENARIO_MAX_WORKERS}
+
+  settings-file = "settings.gradle.kts"
+  settings-file = ${?SCENARIO_SETTINGS_SCRIPT}
+
+  build-logic-abi-change-file = "build-logic/convention/src/main/kotlin/org/example/awesome/utils.kt"
+  build-logic-abi-change-file = ${?SCENARIO_BL_ABI_CHANGE_FILE}
+  
+  build-script-change-file = "core/push/build.gradle.kts"
+  build-script-change-file = ${?SCENARIO_BUILD_SCRIPT_CHANGE_FILE}
+}
 
 default-scenarios = []
 
@@ -42,7 +59,7 @@ base_parameters {
   iterations = 5
 
   system-properties {
-    "org.gradle.workers.max" = "8"
+    "org.gradle.workers.max" = ${setup-parameters.max-workers}
     "org.gradle.caching" = "true"
   }
 
@@ -190,7 +207,7 @@ fsync_pip_iip = ${base_fsync} ${mode_iip} {title = "First sync (cached deps). Pa
 # Resync. Build-logic classpath ABI change. Cold daemon
 base_bl_abi_change_cold = ${base_scenario} {
   daemon = cold
-  apply-abi-change-to = "build-logic/convention/src/main/kotlin/org/example/awesome/utils.kt"
+  apply-abi-change-to = ${setup-parameters.build-logic-abi-change-file}
 }
 resync_bl_abi_change_vt_cold = ${base_bl_abi_change_cold} {title = "Resync. Build-logic ABI change. Vintage. Cold"}
 resync_bl_abi_change_cc_cold = ${base_bl_abi_change_cold} ${mode_cc} {title = "Resync. Build-logic ABI change. CC. Cold"}
@@ -203,7 +220,7 @@ resync_bl_abi_change_pip_iip_cold = ${base_bl_abi_change_cold} ${mode_iip} {titl
 # Resync. Build-logic classpath ABI change. Warm daemon
 base_bl_abi_change_warm = ${base_scenario} {
   daemon = warm
-  apply-abi-change-to = "build-logic/convention/src/main/kotlin/org/example/awesome/utils.kt"
+  apply-abi-change-to = ${setup-parameters.build-logic-abi-change-file}
 }
 resync_bl_abi_change_vt_warm = ${base_bl_abi_change_warm} {title = "Resync. Build-logic ABI change. Vintage. Warm"}
 resync_bl_abi_change_cc_warm = ${base_bl_abi_change_warm} ${mode_cc} {title = "Resync. Build-logic ABI change. CC. Warm"}
@@ -216,7 +233,7 @@ resync_bl_abi_change_pip_iip_warm = ${base_bl_abi_change_warm} ${mode_iip} {titl
 # Resync. Settings script change. Cold daemon
 base_st_scr_change_cold = ${base_scenario} {
   daemon = cold
-  apply-build-script-change-to = "settings.gradle.kts"
+  apply-build-script-change-to = ${setup-parameters.settings-file}
 }
 resync_st_scr_change_vt_cold = ${base_st_scr_change_cold} {title = "Resync. Settings change. Vintage. Cold"}
 resync_st_scr_change_cc_cold = ${base_st_scr_change_cold} ${mode_cc} {title = "Resync. Settings change. CC. Cold"}
@@ -229,7 +246,7 @@ resync_st_scr_change_pip_iip_cold = ${base_st_scr_change_cold} ${mode_iip} {titl
 # Resync. Settings script change. Warm daemon
 base_st_scr_change_warm = ${base_scenario} {
   daemon = warm
-  apply-build-script-change-to = "settings.gradle.kts"
+  apply-build-script-change-to = ${setup-parameters.settings-file}
 }
 resync_st_scr_change_vt_warm = ${base_st_scr_change_warm} {title = "Resync. Settings change. Vintage. Warm"}
 resync_st_scr_change_cc_warm = ${base_st_scr_change_warm} ${mode_cc} {title = "Resync. Settings change. CC. Warm"}
@@ -242,7 +259,7 @@ resync_st_scr_change_pip_iip_warm = ${base_st_scr_change_warm} ${mode_iip} {titl
 # Resync. Project build script change. Cold daemon
 base_pr_scr_change_cold = ${base_scenario} {
   daemon = cold
-  apply-build-script-change-to = "core/push/build.gradle.kts"
+  apply-build-script-change-to = ${setup-parameters.build-script-change-file}
 }
 resync_pr_scr_change_vt_cold = ${base_pr_scr_change_cold} {title = "Resync. Project change. Vintage. Cold"}
 resync_pr_scr_change_cc_cold = ${base_pr_scr_change_cold} ${mode_cc} {title = "Resync. Project change. CC. Cold"}
@@ -255,7 +272,7 @@ resync_pr_scr_change_pip_iip_cold = ${base_pr_scr_change_cold} ${mode_iip} {titl
 # Resync. Project build script change. Warm daemon
 base_pr_scr_change_warm = ${base_scenario} {
   daemon = warm
-  apply-build-script-change-to = "core/push/build.gradle.kts"
+  apply-build-script-change-to = ${setup-parameters.build-script-change-file}
 }
 resync_pr_scr_change_vt_warm = ${base_pr_scr_change_warm} {title = "Resync. Project change. Vintage. Warm"}
 resync_pr_scr_change_cc_warm = ${base_pr_scr_change_warm} ${mode_cc} {title = "Resync. Project change. CC. Warm"}
@@ -296,7 +313,7 @@ resync_no_change_pip_iip_warm = ${base_no_change_warm} ${mode_iip} {title = "Res
 # Rebuild. Build-logic classpath ABI change. Cold daemon
 base_rebuild_bl_abi_change_cold = ${base_build_scenario} {
   daemon = cold
-  apply-abi-change-to = "build-logic/convention/src/main/kotlin/org/example/awesome/utils.kt"
+  apply-abi-change-to = ${setup-parameters.build-logic-abi-change-file}
 }
 rebuild_bl_abi_change_vt_cold = ${base_rebuild_bl_abi_change_cold} {title = "Rebuild. Build-logic ABI change. Vintage. Cold"}
 rebuild_bl_abi_change_cc_cold = ${base_rebuild_bl_abi_change_cold} ${mode_cc} {title = "Rebuild. Build-logic ABI change. CC. Cold"}
@@ -309,7 +326,7 @@ rebuild_bl_abi_change_pip_iip_cold = ${base_rebuild_bl_abi_change_cold} ${mode_i
 # Rebuild. Build-logic classpath ABI change. Warm daemon
 base_rebuild_bl_abi_change_warm = ${base_build_scenario} {
   daemon = warm
-  apply-abi-change-to = "build-logic/convention/src/main/kotlin/org/example/awesome/utils.kt"
+  apply-abi-change-to = ${setup-parameters.build-logic-abi-change-file}
 }
 rebuild_bl_abi_change_vt_warm = ${base_rebuild_bl_abi_change_warm} {title = "Rebuild. Build-logic ABI change. Vintage. Warm"}
 rebuild_bl_abi_change_cc_warm = ${base_rebuild_bl_abi_change_warm} ${mode_cc} {title = "Rebuild. Build-logic ABI change. CC. Warm"}
@@ -322,7 +339,7 @@ rebuild_bl_abi_change_pip_iip_warm = ${base_rebuild_bl_abi_change_warm} ${mode_i
 # Rebuild. Settings script change. Cold daemon
 base_rebuild_st_scr_change_cold = ${base_build_scenario} {
   daemon = cold
-  apply-build-script-change-to = "settings.gradle.kts"
+  apply-build-script-change-to = ${setup-parameters.settings-file}
 }
 rebuild_st_scr_change_vt_cold = ${base_rebuild_st_scr_change_cold} {title = "Rebuild. Settings change. Vintage. Cold"}
 rebuild_st_scr_change_cc_cold = ${base_rebuild_st_scr_change_cold} ${mode_cc} {title = "Rebuild. Settings change. CC. Cold"}
@@ -335,7 +352,7 @@ rebuild_st_scr_change_pip_iip_cold = ${base_rebuild_st_scr_change_cold} ${mode_i
 # Rebuild. Settings script change. Warm daemon
 base_rebuild_st_scr_change_warm = ${base_build_scenario} {
   daemon = warm
-  apply-build-script-change-to = "settings.gradle.kts"
+  apply-build-script-change-to = ${setup-parameters.settings-file}
 }
 rebuild_st_scr_change_vt_warm = ${base_rebuild_st_scr_change_warm} {title = "Rebuild. Settings change. Vintage. Warm"}
 rebuild_st_scr_change_cc_warm = ${base_rebuild_st_scr_change_warm} ${mode_cc} {title = "Rebuild. Settings change. CC. Warm"}
@@ -348,7 +365,7 @@ rebuild_st_scr_change_pip_iip_warm = ${base_rebuild_st_scr_change_warm} ${mode_i
 # Rebuild. Project build script change. Cold daemon
 base_rebuild_pr_scr_change_cold = ${base_build_scenario} {
   daemon = cold
-  apply-build-script-change-to = "core/push/build.gradle.kts"
+  apply-build-script-change-to = ${setup-parameters.build-script-change-file}
 }
 rebuild_pr_scr_change_vt_cold = ${base_rebuild_pr_scr_change_cold} {title = "Rebuild. Project change. Vintage. Cold"}
 rebuild_pr_scr_change_cc_cold = ${base_rebuild_pr_scr_change_cold} ${mode_cc} {title = "Rebuild. Project change. CC. Cold"}
@@ -361,7 +378,7 @@ rebuild_pr_scr_change_pip_iip_cold = ${base_rebuild_pr_scr_change_cold} ${mode_i
 # Rebuild. Project build script change. Warm daemon
 base_rebuild_pr_scr_change_warm = ${base_build_scenario} {
   daemon = warm
-  apply-build-script-change-to = "core/push/build.gradle.kts"
+  apply-build-script-change-to = ${setup-parameters.build-script-change-file}
 }
 rebuild_pr_scr_change_vt_warm = ${base_rebuild_pr_scr_change_warm} {title = "Rebuild. Project change. Vintage. Warm"}
 rebuild_pr_scr_change_cc_warm = ${base_rebuild_pr_scr_change_warm} ${mode_cc} {title = "Rebuild. Project change. CC. Warm"}
