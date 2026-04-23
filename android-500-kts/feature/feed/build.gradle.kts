@@ -22,6 +22,9 @@ dependencies {
     implementation(libs.hilt.work)
     implementation(libs.hilt.android)
     
+    // Navigation
+    implementation(libs.navigation.compose)
+    
     ksp(libs.hilt.compiler.androidx)
     ksp(libs.hilt.compiler)
     kspTest(libs.hilt.compiler)

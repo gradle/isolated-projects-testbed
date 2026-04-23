@@ -6,6 +6,7 @@ plugins {
 dependencies {
     implementation(libs.kotlin.plugin)
     implementation(libs.kotlin.compose.plugin)
+    implementation(libs.kotlin.serialization.plugin)
     implementation(libs.ksp.plugin)
 
     implementation(libs.android.gradle.plugin)
