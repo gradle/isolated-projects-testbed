@@ -1,5 +1,5 @@
-import org.example.awesome.Toolchain
-import org.example.awesome.Utils
+import org.example.awesome.AwesomeToolchains
+import org.example.awesome.AwesomeProjectUtils
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 
 plugins {
@@ -10,10 +10,10 @@ plugins {
 }
 
 extensions.getByType(com.android.build.api.dsl.ApplicationExtension).with {
-    namespace = "com.awesome." + Utils.asProjectNameToNamespace(project.name)
+    namespace = "com.awesome." + AwesomeProjectUtils.asProjectNameToNamespace(project.name)
     compileSdk = 36
     defaultConfig {
-        applicationId = "com.awesome." + Utils.asProjectNameToNamespace(project.name)
+        applicationId = "com.awesome." + AwesomeProjectUtils.asProjectNameToNamespace(project.name)
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -35,11 +35,11 @@ extensions.getByType(com.android.build.api.dsl.ApplicationExtension).with {
 }
 
 extensions.getByType(KotlinAndroidProjectExtension).with {
-    jvmToolchain(Toolchain.javaToolchainVersion)
+    jvmToolchain(AwesomeToolchains.javaToolchainVersion)
 }
 
 extensions.getByType(JavaPluginExtension).with {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(Toolchain.javaToolchainVersion))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(AwesomeToolchains.javaToolchainVersion))
 }
 
 // Hilt missing Java Toolchain support https://github.com/google/dagger/issues/4623
@@ -49,7 +49,7 @@ tasks.withType(JavaCompile)
     .configureEach {
         javaCompiler.set(
             toolchains.compilerFor {
-                languageVersion.set(JavaLanguageVersion.of(Toolchain.javaToolchainVersion))
+                languageVersion.set(JavaLanguageVersion.of(AwesomeToolchains.javaToolchainVersion))
             }
         )
     }

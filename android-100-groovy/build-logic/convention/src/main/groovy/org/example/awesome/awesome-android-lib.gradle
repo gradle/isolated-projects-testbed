@@ -1,6 +1,6 @@
 import com.android.build.api.dsl.LibraryExtension
-import org.example.awesome.Toolchain
-import org.example.awesome.Utils
+import org.example.awesome.AwesomeToolchains
+import org.example.awesome.AwesomeProjectUtils
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 
 plugins {
@@ -11,7 +11,7 @@ plugins {
 }
 
 extensions.getByType(LibraryExtension).with {
-    namespace = "com.awesome." + Utils.asProjectNameToNamespace(project.name)
+    namespace = "com.awesome." + AwesomeProjectUtils.asProjectNameToNamespace(project.name)
     compileSdk = 36
     defaultConfig {
         minSdk = 24
@@ -27,8 +27,8 @@ extensions.getByType(LibraryExtension).with {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.toVersion(Toolchain.javaToolchainVersion)
-        targetCompatibility = JavaVersion.toVersion(Toolchain.javaToolchainVersion)
+        sourceCompatibility = JavaVersion.toVersion(AwesomeToolchains.javaToolchainVersion)
+        targetCompatibility = JavaVersion.toVersion(AwesomeToolchains.javaToolchainVersion)
     }
     buildFeatures {
         compose = true
@@ -36,9 +36,9 @@ extensions.getByType(LibraryExtension).with {
 }
 
 extensions.getByType(KotlinAndroidProjectExtension).with {
-    jvmToolchain(Toolchain.javaToolchainVersion)
+    jvmToolchain(AwesomeToolchains.javaToolchainVersion)
 }
 
 extensions.getByType(JavaPluginExtension).with {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(Toolchain.javaToolchainVersion))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(AwesomeToolchains.javaToolchainVersion))
 }

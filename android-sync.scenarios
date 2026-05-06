@@ -10,7 +10,7 @@ setup-parameters {
   settings-file = "settings.gradle.kts"
   settings-file = ${?SCENARIO_SETTINGS_SCRIPT}
 
-  build-logic-abi-change-file = "build-logic/convention/src/main/kotlin/org/example/awesome/utils.kt"
+  build-logic-abi-change-file = "build-logic/convention/src/main/java/org/example/awesome/AwesomeStringUtils.java"
   build-logic-abi-change-file = ${?SCENARIO_BL_ABI_CHANGE_FILE}
   
   build-script-change-file = "core/push/build.gradle.kts"
