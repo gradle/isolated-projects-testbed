@@ -1,4 +1,4 @@
-rootProject.name = "androidRhombus100modules"
+rootProject.name = "android100"
 
 pluginManagement {
     includeBuild("build-logic")
