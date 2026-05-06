@@ -1,5 +1,5 @@
 package org.example.awesome
 
-class Toolchain {
+class AwesomeToolchains {
     static final int javaToolchainVersion = 21
 }

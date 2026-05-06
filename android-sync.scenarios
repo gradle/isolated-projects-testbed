@@ -10,7 +10,7 @@ setup-parameters {
   settings-file = "settings.gradle.kts"
   settings-file = ${?SCENARIO_SETTINGS_SCRIPT}
 
-  build-logic-abi-change-file = "build-logic/convention/src/main/kotlin/org/example/awesome/utils.kt"
+  build-logic-abi-change-file = "build-logic/convention/src/main/java/org/example/awesome/AwesomeStringUtils.java"
   build-logic-abi-change-file = ${?SCENARIO_BL_ABI_CHANGE_FILE}
   
   build-script-change-file = "core/push/build.gradle.kts"
@@ -46,7 +46,7 @@ scenario-groups {
 
   resync_no_change_warm_all = [resync_no_change_vt_warm, resync_no_change_cc_warm, resync_no_change_pcc_warm, resync_no_change_pcc_par_warm, resync_no_change_pcc_par_cod_warm, resync_no_change_pip_warm, resync_no_change_pip_iip_warm]
   resync_no_change_warm = [resync_no_change_cc_warm, resync_no_change_pcc_par_warm, resync_no_change_pip_warm]
-  
+
   all = ${scenario-groups.fsync_all} ${scenario-groups.resync_bl_abi_change_cold_all} ${scenario-groups.resync_bl_abi_change_warm_all} ${scenario-groups.resync_st_scr_change_cold_all} ${scenario-groups.resync_st_scr_change_warm_all} ${scenario-groups.resync_pr_scr_change_cold_all} ${scenario-groups.resync_pr_scr_change_warm_all} ${scenario-groups.resync_no_change_cold_all} ${scenario-groups.resync_no_change_warm_all}
 }
 
