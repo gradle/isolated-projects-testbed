@@ -1,11 +1,11 @@
 plugins {
-    id("awesome.androidapp.plugin")
+    id("awesome-android-app")
 }
 
 dependencies {
-    implementation(project(":ui:audio-contact"))
-    implementation(project(":ui:playlist-contact"))
-    implementation(project(":ui:push-login"))
+    implementation(projects.ui.audioContact)
+    implementation(projects.ui.playlistContact)
+    implementation(projects.ui.pushLogin)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -23,7 +23,6 @@ dependencies {
     
     ksp(libs.hilt.compiler.androidx)
     ksp(libs.hilt.compiler)
-    ksp(libs.kotlin.jvm.metadata)
     kspTest(libs.hilt.compiler)
     kspAndroidTest(libs.hilt.compiler)
     testImplementation(libs.hilt.android.testing)

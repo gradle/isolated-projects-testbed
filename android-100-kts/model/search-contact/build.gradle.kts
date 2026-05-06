@@ -1,16 +1,16 @@
 plugins {
-    id("awesome.androidlib.plugin")
+    id("awesome-android-lib")
 }
 
 dependencies {
-    implementation(project(":repository:report"))
-    implementation(project(":repository:note"))
-    implementation(project(":repository:log"))
-    implementation(project(":repository:analytics"))
-    implementation(project(":repository:event"))
-    implementation(project(":repository:status"))
-    implementation(project(":repository:file"))
-    implementation(project(":repository:calendar"))
+    implementation(projects.repository.report)
+    implementation(projects.repository.note)
+    implementation(projects.repository.log)
+    implementation(projects.repository.analytics)
+    implementation(projects.repository.event)
+    implementation(projects.repository.status)
+    implementation(projects.repository.file)
+    implementation(projects.repository.calendar)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -28,7 +28,6 @@ dependencies {
     
     ksp(libs.hilt.compiler.androidx)
     ksp(libs.hilt.compiler)
-    ksp(libs.kotlin.jvm.metadata)
     kspTest(libs.hilt.compiler)
     kspAndroidTest(libs.hilt.compiler)
     testImplementation(libs.hilt.android.testing)

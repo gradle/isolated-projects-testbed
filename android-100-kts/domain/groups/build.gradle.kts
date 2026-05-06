@@ -1,12 +1,12 @@
 plugins {
-    id("awesome.androidlib.plugin")
+    id("awesome-android-lib")
 }
 
 dependencies {
-    implementation(project(":feature:user"))
-    implementation(project(":feature:cart"))
-    implementation(project(":feature:checkout"))
-    implementation(project(":feature:comment"))
+    implementation(projects.feature.user)
+    implementation(projects.feature.cart)
+    implementation(projects.feature.checkout)
+    implementation(projects.feature.comment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -24,7 +24,6 @@ dependencies {
     
     ksp(libs.hilt.compiler.androidx)
     ksp(libs.hilt.compiler)
-    ksp(libs.kotlin.jvm.metadata)
     kspTest(libs.hilt.compiler)
     kspAndroidTest(libs.hilt.compiler)
     testImplementation(libs.hilt.android.testing)

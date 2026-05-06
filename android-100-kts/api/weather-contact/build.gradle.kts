@@ -1,13 +1,13 @@
 plugins {
-    id("awesome.androidlib.plugin")
+    id("awesome-android-lib")
 }
 
 dependencies {
-    implementation(project(":data:document-contact"))
-    implementation(project(":data:todo-contact"))
-    implementation(project(":data:alarm-contact"))
-    implementation(project(":data:note-contact"))
-    implementation(project(":data:list-contact"))
+    implementation(projects.data.documentContact)
+    implementation(projects.data.todoContact)
+    implementation(projects.data.alarmContact)
+    implementation(projects.data.noteContact)
+    implementation(projects.data.listContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -25,7 +25,6 @@ dependencies {
     
     ksp(libs.hilt.compiler.androidx)
     ksp(libs.hilt.compiler)
-    ksp(libs.kotlin.jvm.metadata)
     kspTest(libs.hilt.compiler)
     kspAndroidTest(libs.hilt.compiler)
     testImplementation(libs.hilt.android.testing)

@@ -1,14 +1,14 @@
 plugins {
-    id("awesome.androidlib.plugin")
+    id("awesome-android-lib")
 }
 
 dependencies {
-    implementation(project(":domain:notification"))
-    implementation(project(":domain:post"))
-    implementation(project(":domain:location"))
-    implementation(project(":domain:network"))
-    implementation(project(":domain:share"))
-    implementation(project(":domain:message"))
+    implementation(projects.domain.notification)
+    implementation(projects.domain.post)
+    implementation(projects.domain.location)
+    implementation(projects.domain.network)
+    implementation(projects.domain.share)
+    implementation(projects.domain.message)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -26,7 +26,6 @@ dependencies {
     
     ksp(libs.hilt.compiler.androidx)
     ksp(libs.hilt.compiler)
-    ksp(libs.kotlin.jvm.metadata)
     kspTest(libs.hilt.compiler)
     kspAndroidTest(libs.hilt.compiler)
     testImplementation(libs.hilt.android.testing)

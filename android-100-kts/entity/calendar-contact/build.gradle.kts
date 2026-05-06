@@ -1,16 +1,16 @@
 plugins {
-    id("awesome.androidlib.plugin")
+    id("awesome-android-lib")
 }
 
 dependencies {
-    implementation(project(":model:login-contact"))
-    implementation(project(":model:search-contact"))
-    implementation(project(":model:push-contact"))
-    implementation(project(":model:cart-contact"))
-    implementation(project(":model:comment-contact"))
-    implementation(project(":model:playlist"))
-    implementation(project(":model:identity-contact"))
-    implementation(project(":model:forecast"))
+    implementation(projects.model.loginContact)
+    implementation(projects.model.searchContact)
+    implementation(projects.model.pushContact)
+    implementation(projects.model.cartContact)
+    implementation(projects.model.commentContact)
+    implementation(projects.model.playlist)
+    implementation(projects.model.identityContact)
+    implementation(projects.model.forecast)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -28,7 +28,6 @@ dependencies {
     
     ksp(libs.hilt.compiler.androidx)
     ksp(libs.hilt.compiler)
-    ksp(libs.kotlin.jvm.metadata)
     kspTest(libs.hilt.compiler)
     kspAndroidTest(libs.hilt.compiler)
     testImplementation(libs.hilt.android.testing)

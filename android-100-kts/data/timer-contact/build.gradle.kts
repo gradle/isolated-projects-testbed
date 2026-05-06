@@ -1,18 +1,18 @@
 plugins {
-    id("awesome.androidlib.plugin")
+    id("awesome-android-lib")
 }
 
 dependencies {
-    implementation(project(":entity:group-contact"))
-    implementation(project(":entity:setting-contact"))
-    implementation(project(":entity:metric-contact"))
-    implementation(project(":entity:share-contact"))
-    implementation(project(":entity:log-contact"))
-    implementation(project(":entity:analytics-contact"))
-    implementation(project(":entity:session-contact"))
-    implementation(project(":entity:task-contact"))
-    implementation(project(":entity:sync-contact"))
-    implementation(project(":entity:status-contact"))
+    implementation(projects.entity.groupContact)
+    implementation(projects.entity.settingContact)
+    implementation(projects.entity.metricContact)
+    implementation(projects.entity.shareContact)
+    implementation(projects.entity.logContact)
+    implementation(projects.entity.analyticsContact)
+    implementation(projects.entity.sessionContact)
+    implementation(projects.entity.taskContact)
+    implementation(projects.entity.syncContact)
+    implementation(projects.entity.statusContact)
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -30,7 +30,6 @@ dependencies {
     
     ksp(libs.hilt.compiler.androidx)
     ksp(libs.hilt.compiler)
-    ksp(libs.kotlin.jvm.metadata)
     kspTest(libs.hilt.compiler)
     kspAndroidTest(libs.hilt.compiler)
     testImplementation(libs.hilt.android.testing)
