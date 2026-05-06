@@ -1,0 +1,44 @@
+import com.android.build.api.dsl.LibraryExtension
+import org.example.awesome.Toolchain
+import org.example.awesome.Utils
+import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
+
+plugins {
+    id("com.android.library")
+    id("com.google.devtools.ksp")
+    id("dagger.hilt.android.plugin")
+    id("org.jetbrains.kotlin.plugin.compose")
+}
+
+extensions.getByType(LibraryExtension).with {
+    namespace = "com.awesome." + Utils.asProjectNameToNamespace(project.name)
+    compileSdk = 36
+    defaultConfig {
+        minSdk = 24
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        getByName("release") {
+            minifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.toVersion(Toolchain.javaToolchainVersion)
+        targetCompatibility = JavaVersion.toVersion(Toolchain.javaToolchainVersion)
+    }
+    buildFeatures {
+        compose = true
+    }
+}
+
+extensions.getByType(KotlinAndroidProjectExtension).with {
+    jvmToolchain(Toolchain.javaToolchainVersion)
+}
+
+extensions.getByType(JavaPluginExtension).with {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(Toolchain.javaToolchainVersion))
+}
