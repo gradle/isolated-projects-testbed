@@ -12,7 +12,7 @@ plugins {
 
 extensions.getByType(LibraryExtension).with {
     namespace = "com.awesome." + AwesomeProjectUtils.asProjectNameToNamespace(project.name)
-    compileSdk = 36
+    compileSdk = 37
     defaultConfig {
         minSdk = 24
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
