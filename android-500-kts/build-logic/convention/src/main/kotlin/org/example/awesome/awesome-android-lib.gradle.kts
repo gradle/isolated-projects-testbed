@@ -12,7 +12,7 @@ plugins {
 
 extensions.configure<LibraryExtension> {
     namespace = "com.awesome." + project.name.asProjectNameToNamespace()
-    compileSdk = 36
+    compileSdk = 37
     defaultConfig {
         minSdk = 24
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
