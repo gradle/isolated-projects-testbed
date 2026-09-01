@@ -1,0 +1,203 @@
+# Requires Gradle Profiler v0.25.0 or later
+# https://github.com/gradle/gradle-profiler/releases
+
+# Requires Gradle 9.4.0 or later
+
+# This is a set of parameters that allows re-using this scenario file for other setups
+# The parameter values can be either changed directly here or controlled by environment variables
+setup-parameters {
+  max-workers = "8"
+  max-workers = ${?SCENARIO_MAX_WORKERS}
+
+  settings-file = "settings.gradle.kts"
+  settings-file = ${?SCENARIO_SETTINGS_SCRIPT}
+
+  build-logic-abi-change-file = "build-logic/convention/src/main/java/org/example/awesome/AwesomeStringUtils.java"
+  build-logic-abi-change-file = ${?SCENARIO_BL_ABI_CHANGE_FILE}
+
+  build-script-change-file = "core/push/build.gradle.kts"
+  build-script-change-file = ${?SCENARIO_BUILD_SCRIPT_CHANGE_FILE}
+}
+
+default-scenarios = []
+
+# --- Shared base parameters ---
+
+base_parameters {
+  warm-ups = 2
+  iterations = 5
+
+  system-properties {
+    "org.gradle.workers.max" = ${setup-parameters.max-workers}
+    "org.gradle.caching" = "true"
+    "org.gradle.internal.operations.verbose.locking" = "true"
+  }
+
+  measured-build-ops = [
+    # Operations such as 'Compile script build.gradle.kts (BODY)'
+    { type = "org.gradle.internal.scripts.CompileScriptBuildOperationType", measurement-kind = "wall_clock_time" }
+    # Operations such as 'Configure Build'
+    { type = "org.gradle.initialization.ConfigureBuildBuildOperationType", measurement-kind = "time_to_last_inclusive" }
+  ]
+}
+
+# Base for Android Studio sync scenarios
+base_sync_scenario = ${base_parameters} {
+  android-studio-sync {
+    studio-jvm-args = ["-Xms8g", "-Xmx8g"]
+    idea-properties = [
+      "gradle.tooling.models.parallel.fetch=true" // This does not enable parallel fetch, only allows it
+    ]
+  }
+}
+
+# Base for CLI 'help --dry-run' task scenarios
+base_task_dry_scenario = ${base_parameters} {
+  tasks = ["help"]
+  gradle-args = ["--dry-run"]
+}
+
+# Base for first-sync scenarios: Android Studio sync with pre-build cleaning
+base_fsync_scenario = ${base_sync_scenario} {
+  daemon = cold
+
+  // In-between builds, clear the Gradle User Home in a special way.
+  // Remove everything except external dependencies to avoid downloading them again.
+  // The external dependencies are populated by the initial warm-up builds.
+  clear-dir = [{
+    schedule = BUILD
+    root = GRADLE_USER_HOME
+    target = "."
+    keep = [
+      "caches"
+      "wrapper" // keep the wrapper to avoid re-downloading Gradle, mimics `clear-gradle-user-home-before` option
+      "kotlin-profile" // this directory contains only lightweight Kotlin stats, and Android Studio throws logs many exceptions, if it gets deleted while AS is running
+    ]
+  }, {
+    schedule = BUILD
+    root = GRADLE_USER_HOME
+    target = "caches"
+    keep = ["modules-2"]
+  }, {
+    schedule = BUILD
+    target = ".gradle"
+    keep = ["config.properties"]
+  }]
+
+  delete-file = [{
+    schedule = BUILD
+    target = "build-logic/.gradle"
+  }, {
+    schedule = BUILD
+    target = "build"
+  }]
+}
+
+# --- Matrix picks: mode ---
+
+# Base: whatever is set in gradle.properties — no extra system-properties on top.
+mode_base {
+  title = "Base"
+}
+# CC: Vanilla Configuration Cache
+mode_cc {
+  title = "CC"
+  system-properties {
+    "org.gradle.configuration-cache" = "true"
+    "org.gradle.configuration-cache.parallel" = "false"
+    "org.gradle.parallel" = "false"
+    "org.gradle.configureondemand" = "false"
+    "org.gradle.unsafe.isolated-projects" = "false"
+  }
+}
+# Parallel CC: Configuration Cache with Parallel Store
+mode_pcc {
+  title = "ParCC"
+  system-properties {
+    "org.gradle.configuration-cache" = "true"
+    "org.gradle.configuration-cache.parallel" = "true"
+    "org.gradle.parallel" = "false"
+    "org.gradle.configureondemand" = "false"
+    "org.gradle.unsafe.isolated-projects" = "false"
+  }
+}
+# Parallel CC and Parallel Execution (--parallel)
+mode_pcc_par {
+  title = "ParCC and ParExec"
+  system-properties {
+    "org.gradle.configuration-cache" = "true"
+    "org.gradle.configuration-cache.parallel" = "true"
+    "org.gradle.parallel" = "true"
+    "org.gradle.configureondemand" = "false"
+    "org.gradle.unsafe.isolated-projects" = "false"
+  }
+}
+# Parallel CC and Parallel Execution (--parallel) and Configure-on-Demand
+mode_pcc_par_cod {
+  title = "ParCC and ParExec and CoD"
+  system-properties {
+    "org.gradle.configuration-cache" = "true"
+    "org.gradle.configuration-cache.parallel" = "true"
+    "org.gradle.parallel" = "true"
+    "org.gradle.configureondemand" = "true"
+    "org.gradle.unsafe.isolated-projects" = "false"
+  }
+}
+# Parallel IP: Isolated Projects with parallel project configuration
+mode_pip {
+  title = "ParIP"
+  system-properties {
+    "org.gradle.unsafe.isolated-projects" = "true"
+    "org.gradle.internal.isolated-projects.parallel" = "true"
+    "org.gradle.internal.isolated-projects.caching" = "false"
+  }
+}
+# Incremental IP: Parallel IP with incremental project configuration
+mode_pip_iip {
+  title = "ParIP and IncIP"
+  system-properties {
+    "org.gradle.unsafe.isolated-projects" = "true"
+    "org.gradle.internal.isolated-projects.parallel" = "true"
+    "org.gradle.internal.isolated-projects.caching" = "tooling"
+  }
+}
+
+# --- Matrix picks: invoke ---
+
+sync     = ${base_sync_scenario}     {title = "Sync"}
+task_dry = ${base_task_dry_scenario} {title = "Task (dry-run)"}
+first    = ${base_fsync_scenario}    {title = "First sync"}
+
+# --- Matrix picks: change ---
+
+no_change       {title = "No change"}
+bl_abi_change   {title = "Build-logic ABI change", apply-abi-change-to = ${setup-parameters.build-logic-abi-change-file}}
+st_scr_change   {title = "Settings change",        apply-build-script-change-to = ${setup-parameters.settings-file}}
+pr_scr_change   {title = "Project change",         apply-build-script-change-to = ${setup-parameters.build-script-change-file}}
+
+# --- Matrix picks: daemon ---
+
+cold {title = "Cold", daemon = cold}
+warm {title = "Warm", daemon = warm}
+
+# --- Matrices ---
+
+scenario-matrices {
+  perf {
+    title = ""
+    dimensions = [
+      { name = invoke, scenarios = [sync, task_dry] }
+      { name = change, scenarios = [no_change, bl_abi_change, st_scr_change, pr_scr_change] }
+      { name = mode,   scenarios = [mode_base, mode_cc, mode_pcc, mode_pcc_par, mode_pcc_par_cod, mode_pip, mode_pip_iip] }
+      { name = daemon, scenarios = [cold, warm] }
+    ]
+  }
+
+  fsync {
+    title = ""
+    dimensions = [
+      { name = invoke, scenarios = [first] }
+      { name = mode,   scenarios = [mode_base, mode_cc, mode_pcc, mode_pcc_par, mode_pcc_par_cod, mode_pip, mode_pip_iip] }
+    ]
+  }
+}
